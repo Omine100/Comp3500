@@ -1,0 +1,73 @@
+Script started on Tue Aug 18 20:36:25 2020
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmman ls[?2004l
+[?1049h[?1h=
+LS(1)                     BSD General Commands Manual                    LS(1)
+
+[1mNAME[0m
+     [1mls[0m -- list directory contents
+
+[1mSYNOPSIS[0m
+     [1mls[0m [[1m-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1%[0m] [[4mfile[24m [4m...[24m]
+
+[1mDESCRIPTION[0m
+     For each operand that names a [4mfile[24m of a type other than directory, [1mls[0m
+     displays its name as well as any requested, associated information.  For
+     each operand that names a [4mfile[24m of type directory, [1mls[0m displays the names
+     of files contained within that directory, as well as any requested, asso-
+     ciated information.
+
+     If no operands are given, the contents of the current directory are dis-
+     played.  If more than one operand is given, non-directory operands are
+     displayed first; directory and non-directory operands are sorted sepa-
+     rately and in lexicographical order.
+
+     The following options are available:
+
+:[K[K[?1l>[?1049l[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccd comp34 500[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/comp3500[0m[27m[24m[Jmatthewbrowning@MacBook-Pro comp3500 % [K[?2004hccd /[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/[0m[27m[24m[Jmatthewbrowning@MacBook-Pro / % [K[?2004hllsl  ccd Users/matthewBrown     bornw    rowning[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
+Applications	Downloads	Music		commands.script
+Desktop		Library		Pictures	comp3500
+Documents	Movies		Public
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hppwd[?2004l
+/Users/matthewbrowning
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
+Applications	Downloads	Music		commands.script
+Desktop		Library		Pictures	comp3500
+Documents	Movies		Public
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmmkdir testing[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccp pubspec.yaml testing[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmmv pubspec.yaml testing[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrm pubspec.yaml[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
+rmdir: testing: Directory not empty
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrmdir testing[?2004l
+rmdir: testing: Directory not empty
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
+rmdir: testing: Directory not empty
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccd testing[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/testing[0m[27m[24m[Jmatthewbrowning@MacBook-Pro testing % [K[?2004hlls[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/testing[0m[27m[24m[Jmatthewbrowning@MacBook-Pro testing % [K[?2004hccd /[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/[0m[27m[24m[Jmatthewbrowning@MacBook-Pro / % [K[?2004hccd Users/a matthewbrowning[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
+Applications	Downloads	Music		commands.script
+Desktop		Library		Pictures	comp3500
+Documents	Movies		Public		testing
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
+rmdir: testing: Directory not empty
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir comp3500[?2004l
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hppubspec.yaml           p  cchmod rw pubspec.yaml[?2004l
+chmod: Invalid file mode: rw
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hcclear[?2004l
+[H[2J[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004httop[?2004l
+[?1049h[1;24r(B[m[4l[?7h[?1034h[?1h=[H[2JProcesses: 409 total, 2 running, 407 sleeping, 1565 threads[1;72H20:41:03[2dLoad Avg: 1.18, 1.25, 1.40  CPU usage: 3.12% user, 10.15% sys, 86.71% idle[3dSharedLibs: 293M resident, 45M data, 75M linkedit.[4dMemRegions: 58358 total, 1992M resident, 121M private, 1071M shared.[5dPhysMem: 8983M used (2783M wired), 7528M unused.[6dVM: 1964G vsize, 1991M framework vsize, 19621690(0) swapins, 20294571(0) swapout[7;1HNetworks: packets: 3852579/3463M in, 4602733/1068M out.[8dDisks: 2898219/158G read, 4659153/276G written.[10dPID    COMMAND[21G(B[0;7m%CPU(B[m TIME     #TH   #WQ  #POR MEM   PURG  CMPRS PGRP  PPID[11d23837  top[11;21H0.0  00:00.16 1/1   0    14   2152K 0B    0B    23837 23799[12d23836  mdworker_sha 0.0  00:00.06 4     2    49   4080K 0B    0B    23836 1[13d23831  mdworker_sha 0.0  00:00.22 4     1    61   6572K 0B    0B    23831 1[14d23829  backupd[21G0.0  00:00.04 2     1    39   1520K 0B    0B    23829 1[15d23799  zsh[15;21H0.0  00:00.10 1     0    21   1052K 0B    0B    23799 23798[16d23798  script[21G0.0  00:00.05 1     0    14   392K  0B    0B    23798 23718[17d23793  com.apple.iC 0.0  00:00.20 2     1    56   3168K 0B    0B    23793 1[18d23769  Google Chrom 0.0  00:00.09 14    1    97   15M   0B    0B    23425 23425[19d23766  Google Chrom 0.0  00:01.05 14    1    142  22M   0B    0B    23425 23425[20d23765  Google Chrom 0.0  00:03.60 17    1    217  45M   0B    0B    23425 23425[21d23764  Google Chrom 0.0  00:01.21 14    1    141  29M   8192B 0B    23425 23425[22d23762  Google Chrom 0.0  00:09.36 21    1    168  172M  0B    0B    23425 23425[23d23718  zsh[23;21H0.0  00:00.04 1     0    21   1008K 0B    0B    23718 23717[24d23717  login[24;21H0.0  00:00.02 2     1    31   1172K 0B    0B    23717 23528[1;51H0[79G4[2;40H1.47[2;52H2.52% sys, 96.0[2P[5;12H75[5;24H74[5;38H36[7;25H84[7;44H6[10;50HT MEM    PURG   CMPRS  PGRP[K[11;21H8.3[11;32H27[11;46H25+   3024K+ 0B     0B     23837[K[12d276    TouchBarServ 5.5  01:21.03 7     3    450-  26M    0B-    7436K+ 276[13d0      kernel_task  2.4  54:37.94 219/8 0    0     179M-  0B     0B     0[K[14;3H528  Terminal     2.4  00:40.21 13    6    389   57M+   13M+   0B     23528[15d10618  adb[15;21H2.0  08:43.19 4[15;46H121   1016K  0B     492K   10618[K[16;3H425  Google Chrom 1.2  01:10.29 29    3    539   212M   228K   0B     23425[K[17d217    WindowServer 1.0  35:47.49 12    6    930-  376M   9600K+ 35M    217[18d286    usbd         0.7  04:55.86 3     2    67    2828K  0B     2356K  286[K[19d219    mDNSResponde 0.6  00:41.01 5 [19;46H94    5636K  0B     2788K  219[K[20d143    hidd         0.4  08:00.28 7     2    351-  5388K- 0B     984K   143[K[21d19392  Siri         0.2[30G5.81 4     2    183   4692K  0B     1220K  19392[K[22;3H437[22;23H2  00:24.91 10[22;47H25   27M    0B     0B    [2P[23d123    launchservic 0.2  00:19.90 5     4    396-  9168K- 0B     4976K  123[K[24;3H436  Google Chrom 0.1  00:36.03 10[24;46H248   202M-  6216K  0B     23425[K[24;1H[?1049l[?1l>[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hwwho[?2004l
+matthewbrowning console  Jul 25 15:46 
+matthewbrowning ttys006  Aug 18 20:29 
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hn ddrp d dproc[?2004l
+zsh: command not found: dproc
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hnnproc[?2004l
+zsh: command not found: nproc
+[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004heexit[?2004l
+
+Script done on Tue Aug 18 20:41:35 2020
