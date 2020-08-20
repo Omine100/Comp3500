@@ -1,0 +1,93 @@
+Script started on Wed 19 Aug 2020 08:19:59 PM CDT
+[?1034hbash-4.2$ gcc -v
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/4.8.5/lto-wrapper
+Target: x86_64-redhat-linux
+Configured with: ../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-linker-hash-style=gnu --enable-languages=c,c++,objc,obj-c++,java,fortran,ada,go,lto --enable-plugin --enable-initfini-array --disable-libgcj --with-isl=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/isl-install --with-cloog=/builddir/build/BUILD/gcc-4.8.5-20150702/obj-x86_64-redhat-linux/cloog-install --enable-gnu-indirect-function --with-tune=generic --with-arch_32=x86-64 --build=x86_64-redhat-linux
+Thread model: posix
+gcc version 4.8.5 20150623 (Red Hat 4.8.5-39) (GCC) 
+bash-4.2$ gcc -g -lm -o -simple [K[K[K[K[K[K[K[Ksimple simple.c
+bash-4.2$ man ldd
+[?1049h[?1h=LDD(1)                                        Linux Programmer's Manual                                        LDD(1)[m
+[m
+[1mNAME[0m[m
+       ldd - print shared library dependencies[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mldd[0m [OPTION]... FILE...[m
+[m
+[1mDESCRIPTION[0m[m
+       [1mldd[0m prints the shared libraries required by each program or shared library specified on the command line.[m
+[m
+   [1mSecurity[0m[m
+       In  the  usual  case,  [1mldd[0m invokes the standard dynamic linker (see [1mld.so[0m(8)) with the [1mLD_TRACE_LOADED_OBJECTS[0m[m
+       environment variable set to 1, which causes the linker to display the library dependencies.   Be  aware,  how‐[m
+       ever,  that  in  some  circumstances, some versions of [1mldd[0m may attempt to obtain the dependency information by[m
+       directly executing the program.  Thus, you should [4mnever[24m employ [1mldd[0m on an untrusted executable, since this  may[m
+       result in the execution of arbitrary code.  A safer alternative when dealing with untrusted executables is:[m
+[m
+           $ objdump -p /path/to/program | grep NEEDED[m
+[m
+[1mOPTIONS[0m[m
+       [1m--version[0m[m
+              Print the version number of [1mldd[0m.[m
+[m
+       [1m-v[0m [1m--verbose[0m[m
+              Print all information, including, for example, symbol versioning information.[m
+[m
+       [1m-u[0m [1m--unused[0m[m
+              Print unused direct dependencies.  (Since glibc 2.3.4.)[m
+[7m Manual page ldd(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ ldd simple
+	linux-vdso.so.1 =>  (0x00007fff3c7fb000)
+	libm.so.6 => /lib64/libm.so.6 (0x00007fbf74beb000)
+	libc.so.6 => /lib64/libc.so.6 (0x00007fbf7481d000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007fbf74eed000)
+bash-4.2$ gdvb[K[Kb
+[?1034hGNU gdb (GDB) Red Hat Enterprise Linux 7.6.1-119.el7
+Copyright (C) 2013 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+(gdb) file simple[K[K[K[K[K[Ka.out
+Reading symbols from /home/u2/mrb0094/comp3500/project1_usingLinux/a.out...(no debugging symbols found)...done.
+(gdb) r
+Starting program: /home/u2/mrb0094/comp3500/project1_usingLinux/a.out 
+Matthew's Average Square Collector
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 100
+	You entered: 100
+	Enter a number: 10
+	You entered: 10
+Average of squares: 9.316228[Inferior 1 (process 8561) exited normally]
+Missing separate debuginfos, use: debuginfo-install libgcc-4.8.5-39.el7.x86_64 libstdc++-4.8.5-39.el7.x86_64
+(gdb) n
+The program is not being run.
+(gdb) s
+The program is not being run.
+(gdb) c
+The program is not being run.
+(gdb) q
+bash-4.2$ ecit[K[K[Kxit
+exit
+
+Script done on Wed 19 Aug 2020 08:21:12 PM CDT
