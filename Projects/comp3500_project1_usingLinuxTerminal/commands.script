@@ -1,73 +1,346 @@
-Script started on Tue Aug 18 20:36:25 2020
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmman ls[?2004l
-[?1049h[?1h=
-LS(1)                     BSD General Commands Manual                    LS(1)
+Script started on Sun 23 Aug 2020 03:46:33 PM CDT
+[?1034hbash-4.2$ man ls
+[?1049h[?1h=LS(1)                                               User Commands                                               LS(1)[m
+[m
+[1mNAME[0m[m
+       ls - list directory contents[m
+[m
+[1mSYNOPSIS[0m[m
+       [1mls[0m [[4mOPTION[24m]... [[4mFILE[24m]...[m
+[m
+[1mDESCRIPTION[0m[m
+       List  information  about the FILEs (the current directory by default).  Sort entries alphabetically if none of[m
+       [1m-cftuvSUX[0m nor [1m--sort[0m is specified.[m
+[m
+       Mandatory arguments to long options are mandatory for short options too.[m
+[m
+       [1m-a[0m, [1m--all[0m[m
+              do not ignore entries starting with .[m
+[m
+       [1m-A[0m, [1m--almost-all[0m[m
+              do not list implied . and ..[m
+[m
+       [1m--author[0m[m
+              with [1m-l[0m, print the author of each file[m
+[m
+       [1m-b[0m, [1m--escape[0m[m
+              print C-style escapes for nongraphic characters[m
+[m
+       [1m--block-size[0m=[4mSIZE[24m[m
+              scale sizes by SIZE before printing them; e.g., '--block-size=M' prints sizes  in  units  of  1,048,576[m
+              bytes; see SIZE format below[m
+[7m Manual page ls(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ cd comp3500
+bash-4.2$ ls
+project1
+bash-4.2$ mkdir testing
+bash-4.2$ cp meminfo.txt testing
+bash-4.2$ mv meminfo.txt testing
+bash-4.2$ rm interrupts.txt
+bash-4.2$ rmdir testing
+bash-4.2$ chmod tes[K[K[Kmeminfo.txt[C meminfo.txtr meminfo.txtw meminfo.txt
+chmod: invalid mode: ‘rw’
+Try 'chmod --help' for more information.
+bash-4.2$ clear
+[3;J[H[2Jbash-4.2$ top
+[?1h=[?25l[H[2J(B[mtop - 15:49:01 up 117 days,  4:01,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+Tasks:(B[m[39;49m[1m 458 (B[m[39;49mtotal,(B[m[39;49m[1m   1 (B[m[39;49mrunning,(B[m[39;49m[1m 457 (B[m[39;49msleeping,(B[m[39;49m[1m   0 (B[m[39;49mstopped,(B[m[39;49m[1m   0 (B[m[39;49mzombie(B[m[39;49m(B[m[39;49m[K
+%Cpu(s):(B[m[39;49m[1m  0.8 (B[m[39;49mus,(B[m[39;49m[1m  1.8 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 97.4 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020680 (B[m[39;49mfree,(B[m[39;49m[1m  2455872 (B[m[39;49mused,(B[m[39;49m[1m 16031576 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319248 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+[7m  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                             (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2692   1640 R  13.6  0.0   0:00.09 top                                                 (B[m[39;49m[K
+(B[m 4205 gdm       20   0  739340  48804   9152 S   4.5  0.2 667:54.47 gsd-color                                           (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.38 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K
+(B[m   26 root      20   0       0      0      0 S   0.0  0.0   0:06.72 ksoftirqd/3                                         (B[m[39;49m[K
+(B[m   28 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/3:0H                                        (B[m[39;49m[K[H(B[mtop - 15:49:04 up 117 days,  4:01,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
 
-[1mNAME[0m
-     [1mls[0m -- list directory contents
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.8 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020600 (B[m[39;49mfree,(B[m[39;49m[1m  2455896 (B[m[39;49mused,(B[m[39;49m[1m 16031632 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319224 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
 
-[1mSYNOPSIS[0m
-     [1mls[0m [[1m-ABCFGHLOPRSTUW@abcdefghiklmnopqrstuwx1%[0m] [[4mfile[24m [4m...[24m]
+(B[m 4205 gdm       20   0  739340  48804   9152 S   0.7  0.2 667:54.49 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:19.83 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   0.7  0.0   0:00.11 top                                                 (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.38 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K
+(B[m   26 root      20   0       0      0      0 S   0.0  0.0   0:06.72 ksoftirqd/3                                         (B[m[39;49m[K[H(B[mtop - 15:49:07 up 117 days,  4:01,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
 
-[1mDESCRIPTION[0m
-     For each operand that names a [4mfile[24m of a type other than directory, [1mls[0m
-     displays its name as well as any requested, associated information.  For
-     each operand that names a [4mfile[24m of type directory, [1mls[0m displays the names
-     of files contained within that directory, as well as any requested, asso-
-     ciated information.
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.9 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020608 (B[m[39;49mfree,(B[m[39;49m[1m  2455872 (B[m[39;49mused,(B[m[39;49m[1m 16031648 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319232 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
 
-     If no operands are given, the contents of the current directory are dis-
-     played.  If more than one operand is given, non-directory operands are
-     displayed first; directory and non-directory operands are sorted sepa-
-     rately and in lexicographical order.
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   1.0  0.0   0:00.14 top                                                 (B[m[39;49m[K
+(B[m 4205 gdm       20   0  739340  48804   9152 S   0.7  0.2 667:54.51 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:19.85 gsd-color                                           (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.3  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
 
-     The following options are available:
 
-:[K[K[?1l>[?1049l[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccd comp34 500[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/comp3500[0m[27m[24m[Jmatthewbrowning@MacBook-Pro comp3500 % [K[?2004hccd /[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/[0m[27m[24m[Jmatthewbrowning@MacBook-Pro / % [K[?2004hllsl  ccd Users/matthewBrown     bornw    rowning[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
-Applications	Downloads	Music		commands.script
-Desktop		Library		Pictures	comp3500
-Documents	Movies		Public
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hppwd[?2004l
-/Users/matthewbrowning
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
-Applications	Downloads	Music		commands.script
-Desktop		Library		Pictures	comp3500
-Documents	Movies		Public
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmmkdir testing[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccp pubspec.yaml testing[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hmmv pubspec.yaml testing[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrm pubspec.yaml[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
-rmdir: testing: Directory not empty
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrmdir testing[?2004l
-rmdir: testing: Directory not empty
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
-rmdir: testing: Directory not empty
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hccd testing[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/testing[0m[27m[24m[Jmatthewbrowning@MacBook-Pro testing % [K[?2004hlls[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning/testing[0m[27m[24m[Jmatthewbrowning@MacBook-Pro testing % [K[?2004hccd /[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/[0m[27m[24m[Jmatthewbrowning@MacBook-Pro / % [K[?2004hccd Users/a matthewbrowning[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hlls[?2004l
-Applications	Downloads	Music		commands.script
-Desktop		Library		Pictures	comp3500
-Documents	Movies		Public		testing
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir testing[?2004l
-rmdir: testing: Directory not empty
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hrrmdir comp3500[?2004l
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hppubspec.yaml           p  cchmod rw pubspec.yaml[?2004l
-chmod: Invalid file mode: rw
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hcclear[?2004l
-[H[2J[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004httop[?2004l
-[?1049h[1;24r(B[m[4l[?7h[?1034h[?1h=[H[2JProcesses: 409 total, 2 running, 407 sleeping, 1565 threads[1;72H20:41:03[2dLoad Avg: 1.18, 1.25, 1.40  CPU usage: 3.12% user, 10.15% sys, 86.71% idle[3dSharedLibs: 293M resident, 45M data, 75M linkedit.[4dMemRegions: 58358 total, 1992M resident, 121M private, 1071M shared.[5dPhysMem: 8983M used (2783M wired), 7528M unused.[6dVM: 1964G vsize, 1991M framework vsize, 19621690(0) swapins, 20294571(0) swapout[7;1HNetworks: packets: 3852579/3463M in, 4602733/1068M out.[8dDisks: 2898219/158G read, 4659153/276G written.[10dPID    COMMAND[21G(B[0;7m%CPU(B[m TIME     #TH   #WQ  #POR MEM   PURG  CMPRS PGRP  PPID[11d23837  top[11;21H0.0  00:00.16 1/1   0    14   2152K 0B    0B    23837 23799[12d23836  mdworker_sha 0.0  00:00.06 4     2    49   4080K 0B    0B    23836 1[13d23831  mdworker_sha 0.0  00:00.22 4     1    61   6572K 0B    0B    23831 1[14d23829  backupd[21G0.0  00:00.04 2     1    39   1520K 0B    0B    23829 1[15d23799  zsh[15;21H0.0  00:00.10 1     0    21   1052K 0B    0B    23799 23798[16d23798  script[21G0.0  00:00.05 1     0    14   392K  0B    0B    23798 23718[17d23793  com.apple.iC 0.0  00:00.20 2     1    56   3168K 0B    0B    23793 1[18d23769  Google Chrom 0.0  00:00.09 14    1    97   15M   0B    0B    23425 23425[19d23766  Google Chrom 0.0  00:01.05 14    1    142  22M   0B    0B    23425 23425[20d23765  Google Chrom 0.0  00:03.60 17    1    217  45M   0B    0B    23425 23425[21d23764  Google Chrom 0.0  00:01.21 14    1    141  29M   8192B 0B    23425 23425[22d23762  Google Chrom 0.0  00:09.36 21    1    168  172M  0B    0B    23425 23425[23d23718  zsh[23;21H0.0  00:00.04 1     0    21   1008K 0B    0B    23718 23717[24d23717  login[24;21H0.0  00:00.02 2     1    31   1172K 0B    0B    23717 23528[1;51H0[79G4[2;40H1.47[2;52H2.52% sys, 96.0[2P[5;12H75[5;24H74[5;38H36[7;25H84[7;44H6[10;50HT MEM    PURG   CMPRS  PGRP[K[11;21H8.3[11;32H27[11;46H25+   3024K+ 0B     0B     23837[K[12d276    TouchBarServ 5.5  01:21.03 7     3    450-  26M    0B-    7436K+ 276[13d0      kernel_task  2.4  54:37.94 219/8 0    0     179M-  0B     0B     0[K[14;3H528  Terminal     2.4  00:40.21 13    6    389   57M+   13M+   0B     23528[15d10618  adb[15;21H2.0  08:43.19 4[15;46H121   1016K  0B     492K   10618[K[16;3H425  Google Chrom 1.2  01:10.29 29    3    539   212M   228K   0B     23425[K[17d217    WindowServer 1.0  35:47.49 12    6    930-  376M   9600K+ 35M    217[18d286    usbd         0.7  04:55.86 3     2    67    2828K  0B     2356K  286[K[19d219    mDNSResponde 0.6  00:41.01 5 [19;46H94    5636K  0B     2788K  219[K[20d143    hidd         0.4  08:00.28 7     2    351-  5388K- 0B     984K   143[K[21d19392  Siri         0.2[30G5.81 4     2    183   4692K  0B     1220K  19392[K[22;3H437[22;23H2  00:24.91 10[22;47H25   27M    0B     0B    [2P[23d123    launchservic 0.2  00:19.90 5     4    396-  9168K- 0B     4976K  123[K[24;3H436  Google Chrom 0.1  00:36.03 10[24;46H248   202M-  6216K  0B     23425[K[24;1H[?1049l[?1l>[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hwwho[?2004l
-matthewbrowning console  Jul 25 15:46 
-matthewbrowning ttys006  Aug 18 20:29 
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hn ddrp d dproc[?2004l
-zsh: command not found: dproc
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004hnnproc[?2004l
-zsh: command not found: nproc
-[1m[7m%[27m[1m[0m                                                                                ]7;file://MacBook-Pro.local/Users/matthewbrowning[0m[27m[24m[Jmatthewbrowning@MacBook-Pro ~ % [K[?2004heexit[?2004l
 
-Script done on Tue Aug 18 20:41:35 2020
+
+
+
+
+
+
+
+
+
+[H(B[mtop - 15:49:10 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+%Cpu(s):(B[m[39;49m[1m  0.3 (B[m[39;49mus,(B[m[39;49m[1m  0.1 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.7 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020476 (B[m[39;49mfree,(B[m[39;49m[1m  2456004 (B[m[39;49mused,(B[m[39;49m[1m 16031648 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319100 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m 3269 gdm       20   0 4490876 146684  57768 S   1.0  0.6 152:52.10 gnome-shell                                         (B[m[39;49m[K
+(B[m 4205 gdm       20   0  739340  48804   9152 S   1.0  0.2 667:54.54 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   1.0  0.2 636:19.88 gsd-color                                           (B[m[39;49m[K
+(B[m22818 yzf0019   20   0 4588256 216356  92440 S   1.0  0.9  12:07.96 gnome-shell                                         (B[m[39;49m[K
+(B[m21225 mzs0190   20   0 4862004 296652  90540 S   0.7  1.2 247:19.88 gnome-shell                                         (B[m[39;49m[K
+(B[m   93 root      20   0       0      0      0 S   0.3  0.0   0:08.83 khungtaskd                                          (B[m[39;49m[K
+(B[m 1290 root      20   0   21676   1388   1000 S   0.3  0.0  20:18.96 irqbalance                                          (B[m[39;49m[K
+(B[m18300 root      20   0       0      0      0 S   0.3  0.0   0:04.07 kworker/1:0                                         (B[m[39;49m[K
+(B[m26525 root      20   0       0      0      0 S   0.3  0.0   0:00.08 kworker/u32:2                                       (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   0.3  0.0   0:00.15 top                                                 (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K[H(B[mtop - 15:49:13 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.8 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020476 (B[m[39;49mfree,(B[m[39;49m[1m  2455996 (B[m[39;49mused,(B[m[39;49m[1m 16031656 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319104 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   1.0  0.0   0:00.18 top                                                 (B[m[39;49m[K
+(B[m 4205 gdm       20   0  739340  48804   9152 S   0.7  0.2 667:54.56 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:19.90 gsd-color                                           (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K
+(B[m   26 root      20   0       0      0      0 S   0.0  0.0   0:06.72 ksoftirqd/3                                         (B[m[39;49m[K[H(B[mtop - 15:49:16 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020484 (B[m[39;49mfree,(B[m[39;49m[1m  2455988 (B[m[39;49mused,(B[m[39;49m[1m 16031656 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319112 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   1.0  0.2 636:19.93 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   1.0  0.0   0:00.21 top                                                 (B[m[39;49m[K
+(B[m 4205 gdm       20   0  739340  48804   9152 S   0.7  0.2 667:54.58 gsd-color                                           (B[m[39;49m[K
+(B[m 6473 mzs0190   20   0  310864  21204  10196 S   0.3  0.1  67:06.25 tmaxgui                                             (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K[H(B[mtop - 15:49:19 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.9 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020584 (B[m[39;49mfree,(B[m[39;49m[1m  2455880 (B[m[39;49mused,(B[m[39;49m[1m 16031664 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319212 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m 4205 gdm       20   0  739340  48804   9152 S   1.0  0.2 667:54.61 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:19.95 gsd-color                                           (B[m[39;49m[K
+(B[m23074 yzf0019   20   0  706392  17292   9380 S   0.3  0.1   2:06.04 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   0.3  0.0   0:00.22 top                                                 (B[m[39;49m[K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[H(B[mtop - 15:49:22 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.8 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020728 (B[m[39;49mfree,(B[m[39;49m[1m  2455736 (B[m[39;49mused,(B[m[39;49m[1m 16031664 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319364 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m 4205 gdm       20   0  739340  48804   9152 S   0.7  0.2 667:54.63 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:19.97 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   0.7  0.0   0:00.24 top                                                 (B[m[39;49m[K
+(B[m 1328 root      20   0   90568   3188   2328 S   0.3  0.0  25:02.24 rngd                                                (B[m[39;49m[K
+(B[m 9351 yzf0019   20   0 2095612 526324 185056 S   0.3  2.1   2:59.40 virtuoso                                            (B[m[39;49m[K
+(B[m23074 yzf0019   20   0  706392  17292   9380 S   0.3  0.1   2:06.05 gsd-color                                           (B[m[39;49m[K
+(B[m32188 acr0073   20   0   10992    816    684 S   0.3  0.0   8:43.37 clsbd                                               (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K[H(B[mtop - 15:49:25 up 117 days,  4:02,  7 users,  load average: 0.01, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020720 (B[m[39;49mfree,(B[m[39;49m[1m  2455744 (B[m[39;49mused,(B[m[39;49m[1m 16031664 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319356 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m 4205 gdm       20   0  739340  48804   9152 S   1.0  0.2 667:54.66 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   1.0  0.2 636:20.00 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   1.0  0.0   0:00.27 top                                                 (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K
+(B[m   26 root      20   0       0      0      0 S   0.0  0.0   0:06.72 ksoftirqd/3                                         (B[m[39;49m[K[H(B[mtop - 15:49:28 up 117 days,  4:02,  7 users,  load average: 0.00, 0.03, 0.05(B[m[39;49m(B[m[39;49m[K
+
+%Cpu(s):(B[m[39;49m[1m  0.1 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.9 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49mst(B[m[39;49m(B[m[39;49m[K
+KiB Mem :(B[m[39;49m[1m 24508128 (B[m[39;49mtotal,(B[m[39;49m[1m  6020916 (B[m[39;49mfree,(B[m[39;49m[1m  2455540 (B[m[39;49mused,(B[m[39;49m[1m 16031672 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
+KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 21319552 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
+[K
+
+(B[m 4205 gdm       20   0  739340  48804   9152 S   1.0  0.2 667:54.69 gsd-color                                           (B[m[39;49m[K
+(B[m21491 mzs0190   20   0  664544  46544   9388 S   0.7  0.2 636:20.02 gsd-color                                           (B[m[39;49m[K
+(B[m[1m26960 mrb0094   20   0  168736   2760   1688 R   0.7  0.0   0:00.29 top                                                 (B[m[39;49m[K
+(B[m 3969 gdm       20   0  459320   5328   3352 S   0.3  0.0   2:25.99 ibus-daemon                                         (B[m[39;49m[K
+(B[m    1 root      20   0  194312   7356   4080 S   0.0  0.0  19:07.76 systemd                                             (B[m[39;49m[K
+(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:03.71 kthreadd                                            (B[m[39;49m[K
+(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/0:0H                                        (B[m[39;49m[K
+(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:10.55 ksoftirqd/0                                         (B[m[39;49m[K
+(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/0                                         (B[m[39;49m[K
+(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh                                              (B[m[39;49m[K
+(B[m    9 root      20   0       0      0      0 S   0.0  0.0  23:33.39 rcu_sched                                           (B[m[39;49m[K
+(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add-drain                                       (B[m[39;49m[K
+(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   1:17.35 watchdog/0                                          (B[m[39;49m[K
+(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:25.18 watchdog/1                                          (B[m[39;49m[K
+(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:01.01 migration/1                                         (B[m[39;49m[K
+(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:01.97 ksoftirqd/1                                         (B[m[39;49m[K
+(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/1:0H                                        (B[m[39;49m[K
+(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:23.19 watchdog/2                                          (B[m[39;49m[K
+(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:01.00 migration/2                                         (B[m[39;49m[K
+(B[m   20 root      20   0       0      0      0 S   0.0  0.0   0:01.91 ksoftirqd/2                                         (B[m[39;49m[K
+(B[m   22 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker/2:0H                                        (B[m[39;49m[K
+(B[m   24 root      rt   0       0      0      0 S   0.0  0.0   0:22.82 watchdog/3                                          (B[m[39;49m[K
+(B[m   25 root      rt   0       0      0      0 S   0.0  0.0   0:00.91 migration/3                                         (B[m[39;49m[K[?1l>[31;1H
+[?12l[?25h[Kbash-4.2$ who
+mrb0094  pts/2        2020-08-23 15:45 (ettin.eng.auburn.edu)
+mrb0094  pts/3        2020-08-23 15:46
+yzf0019  pts/0        2020-08-19 09:14 (:2)
+mzs0190  pts/1        2020-05-26 16:04 (:1)
+bash-4.2$ nproc
+16
+bash-4.2$ exit
+exit
+
+Script done on Sun 23 Aug 2020 03:49:44 PM CDT
