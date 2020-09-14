@@ -1,0 +1,516 @@
+Script started on Wed 09 Sep 2020 03:14:34 PM CDT
+[?1034hbash-4.2$ cd src
+bash-4.2$ cd src[2Pexitcleargit archiveclear[1Ppush --tags[7Pshow[1Ptag asst0-endgcommit -m "project 2"[C[C[C[C[C[C[C[C[C[Ccd src[K[4Plscd srcgit commit -m "project 2"
+[master 5a36961] project 2
+ Committer: Matthew Roland Browning <mrb0094@tux050.eng.auburn.edu>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 376 files changed, 2763 insertions(+), 1 deletion(-)
+ create mode 100755 bin/cat/cat
+ create mode 100644 bin/cat/cat.o
+ create mode 100755 bin/cp/cp
+ create mode 100644 bin/cp/cp.o
+ create mode 100755 bin/false/false
+ create mode 100644 bin/false/false.o
+ create mode 100755 bin/ln/ln
+ create mode 100644 bin/ln/ln.o
+ create mode 100755 bin/ls/ls
+ create mode 100644 bin/ls/ls.o
+ create mode 100755 bin/mkdir/mkdir
+ create mode 100644 bin/mkdir/mkdir.o
+ create mode 100755 bin/mv/mv
+ create mode 100644 bin/mv/mv.o
+ create mode 100755 bin/pwd/pwd
+ create mode 100644 bin/pwd/pwd.o
+ create mode 100755 bin/rm/rm
+ create mode 100644 bin/rm/rm.o
+ create mode 100755 bin/rmdir/rmdir
+ create mode 100644 bin/rmdir/rmdir.o
+ create mode 100755 bin/sh/host-sh
+ create mode 100755 bin/sh/sh
+ create mode 100644 bin/sh/sh.ho
+ create mode 100644 bin/sh/sh.o
+ create mode 100755 bin/sync/sync
+ create mode 100644 bin/sync/sync.o
+ create mode 100755 bin/true/true
+ create mode 100644 bin/true/true.o
+ create mode 100644 defs.mk
+ create mode 100644 kern/compile/ASST0/Makefile
+ create mode 100644 kern/compile/ASST0/__printf.o
+ create mode 100644 kern/compile/ASST0/array.o
+ create mode 100644 kern/compile/ASST0/arraytest.o
+ create mode 100644 kern/compile/ASST0/atoi.o
+ create mode 100644 kern/compile/ASST0/autoconf.c
+ create mode 100644 kern/compile/ASST0/autoconf.h
+ create mode 100644 kern/compile/ASST0/autoconf.o
+ create mode 100644 kern/compile/ASST0/beep.o
+ create mode 100644 kern/compile/ASST0/beep_ltimer.o
+ create mode 100644 kern/compile/ASST0/bitmap.o
+ create mode 100644 kern/compile/ASST0/bitmaptest.o
+ create mode 100644 kern/compile/ASST0/bzero.o
+ create mode 100644 kern/compile/ASST0/cache_mips1.o
+ create mode 100644 kern/compile/ASST0/con_lser.o
+ create mode 100644 kern/compile/ASST0/console.o
+ create mode 100644 kern/compile/ASST0/copyinout.o
+ create mode 100644 kern/compile/ASST0/defs.mk
+ create mode 100644 kern/compile/ASST0/depend.mk
+ create mode 100644 kern/compile/ASST0/device.o
+ create mode 100644 kern/compile/ASST0/devnull.o
+ create mode 100644 kern/compile/ASST0/dumbvm.o
+ create mode 100644 kern/compile/ASST0/emu.o
+ create mode 100644 kern/compile/ASST0/emu_att.o
+ create mode 100644 kern/compile/ASST0/exception.o
+ create mode 100644 kern/compile/ASST0/files.mk
+ create mode 100644 kern/compile/ASST0/fstest.o
+ create mode 100644 kern/compile/ASST0/hardclock.o
+ create mode 100644 kern/compile/ASST0/hello.o
+ create mode 100644 kern/compile/ASST0/init.o
+ create mode 100644 kern/compile/ASST0/interrupt.o
+ create mode 100755 kern/compile/ASST0/kernel
+ create mode 100644 kern/compile/ASST0/kgets.o
+ create mode 100644 kern/compile/ASST0/kheap.o
+ create mode 100644 kern/compile/ASST0/kprintf.o
+ create mode 100644 kern/compile/ASST0/lamebus.o
+ create mode 100644 kern/compile/ASST0/lamebus_mips.o
+ create mode 100644 kern/compile/ASST0/lhd.o
+ create mode 100644 kern/compile/ASST0/lhd_att.o
+ create mode 100644 kern/compile/ASST0/loadelf.o
+ create mode 100644 kern/compile/ASST0/lrandom.o
+ create mode 100644 kern/compile/ASST0/lrandom_att.o
+ create mode 100644 kern/compile/ASST0/lser.o
+ create mode 100644 kern/compile/ASST0/lser_att.o
+ create mode 100644 kern/compile/ASST0/ltimer.o
+ create mode 100644 kern/compile/ASST0/ltimer_att.o
+ create mode 100644 kern/compile/ASST0/ltrace.o
+ create mode 100644 kern/compile/ASST0/ltrace_att.o
+ create mode 120000 kern/compile/ASST0/machine
+ create mode 100644 kern/compile/ASST0/main.o
+ create mode 100644 kern/compile/ASST0/malloctest.o
+ create mode 100644 kern/compile/ASST0/memcpy.o
+ create mode 100644 kern/compile/ASST0/memmove.o
+ create mode 100644 kern/compile/ASST0/menu.o
+ create mode 100644 kern/compile/ASST0/mips-setjmp.o
+ create mode 100644 kern/compile/ASST0/misc.o
+ create mode 100644 kern/compile/ASST0/ntoh.o
+ create mode 100644 kern/compile/ASST0/opt-dumbvm.h
+ create mode 100644 kern/compile/ASST0/opt-net.h
+ create mode 100644 kern/compile/ASST0/opt-netfs.h
+ create mode 100644 kern/compile/ASST0/opt-sfs.h
+ create mode 100644 kern/compile/ASST0/opt-synchprobs.h
+ create mode 100644 kern/compile/ASST0/pcb.o
+ create mode 100644 kern/compile/ASST0/pseudorand.o
+ create mode 100644 kern/compile/ASST0/pseudorand_att.o
+ create mode 100644 kern/compile/ASST0/queue.o
+ create mode 100644 kern/compile/ASST0/queuetest.o
+ create mode 100644 kern/compile/ASST0/ram.o
+ create mode 100644 kern/compile/ASST0/random.o
+ create mode 100644 kern/compile/ASST0/random_lrandom.o
+ create mode 100644 kern/compile/ASST0/rtclock.o
+ create mode 100644 kern/compile/ASST0/rtclock_ltimer.o
+ create mode 100644 kern/compile/ASST0/runprogram.o
+ create mode 100644 kern/compile/ASST0/scheduler.o
+ create mode 100644 kern/compile/ASST0/sfs_fs.o
+ create mode 100644 kern/compile/ASST0/sfs_io.o
+ create mode 100644 kern/compile/ASST0/sfs_vnode.o
+ create mode 100644 kern/compile/ASST0/snprintf.o
+ create mode 100644 kern/compile/ASST0/spl.o
+ create mode 100644 kern/compile/ASST0/start.o
+ create mode 100644 kern/compile/ASST0/strcat.o
+ create mode 100644 kern/compile/ASST0/strchr.o
+ create mode 100644 kern/compile/ASST0/strcmp.o
+ create mode 100644 kern/compile/ASST0/strcpy.o
+ create mode 100644 kern/compile/ASST0/strlen.o
+ create mode 100644 kern/compile/ASST0/strrchr.o
+ create mode 100644 kern/compile/ASST0/strtok_r.o
+ create mode 100644 kern/compile/ASST0/switch.o
+ create mode 100644 kern/compile/ASST0/synch.o
+ create mode 100644 kern/compile/ASST0/synchtest.o
+ create mode 100644 kern/compile/ASST0/syscall.o
+ create mode 100644 kern/compile/ASST0/thread.o
+ create mode 100644 kern/compile/ASST0/threadstart.o
+ create mode 100644 kern/compile/ASST0/threadtest.o
+ create mode 100644 kern/compile/ASST0/tlb_mips1.o
+ create mode 100644 kern/compile/ASST0/trap.o
+ create mode 100644 kern/compile/ASST0/tt3.o
+ create mode 100644 kern/compile/ASST0/uio.o
+ create mode 100644 kern/compile/ASST0/vers.c
+ create mode 100644 kern/compile/ASST0/vers.o
+ create mode 100644 kern/compile/ASST0/version
+ create mode 100644 kern/compile/ASST0/vfscwd.o
+ create mode 100644 kern/compile/ASST0/vfslist.o
+ create mode 100644 kern/compile/ASST0/vfslookup.o
+ create mode 100644 kern/compile/ASST0/vfspath.o
+ create mode 100644 kern/compile/ASST0/vnode.o
+ create mode 100644 kern/main/hello.c
+ create mode 100644 lib/crt0/crt0.o
+ create mode 100644 lib/hostcompat/err.ho
+ create mode 100644 lib/hostcompat/hostcompat.ho
+ create mode 100644 lib/hostcompat/libhostcompat.ha
+ create mode 100644 lib/hostcompat/time.ho
+ create mode 100644 lib/libc/__assert.o
+ create mode 100644 lib/libc/__printf.o
+ create mode 100644 lib/libc/__puts.o
+ create mode 100644 lib/libc/abort.o
+ create mode 100644 lib/libc/atoi.o
+ create mode 100644 lib/libc/bzero.o
+ create mode 100644 lib/libc/err.o
+ create mode 100644 lib/libc/errno.o
+ create mode 100644 lib/libc/exit.o
+ create mode 100644 lib/libc/getchar.o
+ create mode 100644 lib/libc/getcwd.o
+ create mode 100644 lib/libc/libc.a
+ create mode 100644 lib/libc/memcmp.o
+ create mode 100644 lib/libc/memcpy.o
+ create mode 100644 lib/libc/memmove.o
+ create mode 100644 lib/libc/memset.o
+ create mode 100644 lib/libc/mips-setjmp.o
+ create mode 100644 lib/libc/printf.o
+ create mode 100644 lib/libc/putchar.o
+ create mode 100644 lib/libc/puts.o
+ create mode 100644 lib/libc/random.o
+ create mode 100644 lib/libc/snprintf.o
+ create mode 100644 lib/libc/strcat.o
+ create mode 100644 lib/libc/strchr.o
+ create mode 100644 lib/libc/strcmp.o
+ create mode 100644 lib/libc/strcpy.o
+ create mode 100644 lib/libc/strerror.o
+ create mode 100644 lib/libc/strlen.o
+ create mode 100644 lib/libc/strrchr.o
+ create mode 100644 lib/libc/strtok.o
+ create mode 100644 lib/libc/strtok_r.o
+ create mode 100644 lib/libc/syscalls.S
+ create mode 100644 lib/libc/syscalls.o
+ create mode 100644 lib/libc/system.o
+ create mode 100644 lib/libc/time.o
+ create mode 120000 sbin/dumpsfs/disk.c
+ create mode 120000 sbin/dumpsfs/disk.h
+ create mode 100644 sbin/dumpsfs/disk.ho
+ create mode 100644 sbin/dumpsfs/disk.o
+ create mode 100755 sbin/dumpsfs/dumpsfs
+ create mode 100644 sbin/dumpsfs/dumpsfs.ho
+ create mode 100644 sbin/dumpsfs/dumpsfs.o
+ create mode 100755 sbin/dumpsfs/host-dumpsfs
+ create mode 120000 sbin/dumpsfs/support.c
+ create mode 120000 sbin/dumpsfs/support.h
+ create mode 100644 sbin/dumpsfs/support.ho
+ create mode 100644 sbin/dumpsfs/support.o
+ create mode 100755 sbin/halt/halt
+ create mode 100644 sbin/halt/halt.o
+ create mode 100644 sbin/mksfs/disk.ho
+ create mode 100644 sbin/mksfs/disk.o
+ create mode 100755 sbin/mksfs/host-mksfs
+ create mode 100755 sbin/mksfs/mksfs
+ create mode 100644 sbin/mksfs/mksfs.ho
+ create mode 100644 sbin/mksfs/mksfs.o
+ create mode 100644 sbin/mksfs/support.ho
+ create mode 100644 sbin/mksfs/support.o
+ create mode 100755 sbin/poweroff/poweroff
+ create mode 100644 sbin/poweroff/poweroff.o
+ create mode 100755 sbin/reboot/reboot
+ create mode 100644 sbin/reboot/reboot.o
+ create mode 100755 testbin/add/add
+ create mode 100644 testbin/add/add.o
+ create mode 100755 testbin/argtest/argtest
+ create mode 100644 testbin/argtest/argtest.o
+ create mode 100644 testbin/badcall/bad_chdir.o
+ create mode 100644 testbin/badcall/bad_close.o
+ create mode 100644 testbin/badcall/bad_dup2.o
+ create mode 100644 testbin/badcall/bad_execv.o
+ create mode 100644 testbin/badcall/bad_fsync.o
+ create mode 100644 testbin/badcall/bad_ftruncate.o
+ create mode 100644 testbin/badcall/bad_getcwd.o
+ create mode 100644 testbin/badcall/bad_getdirentry.o
+ create mode 100644 testbin/badcall/bad_ioctl.o
+ create mode 100644 testbin/badcall/bad_link.o
+ create mode 100644 testbin/badcall/bad_lseek.o
+ create mode 100644 testbin/badcall/bad_mkdir.o
+ create mode 100644 testbin/badcall/bad_open.o
+ create mode 100644 testbin/badcall/bad_pipe.o
+ create mode 100644 testbin/badcall/bad_read.o
+ create mode 100644 testbin/badcall/bad_readlink.o
+ create mode 100644 testbin/badcall/bad_reboot.o
+ create mode 100644 testbin/badcall/bad_remove.o
+ create mode 100644 testbin/badcall/bad_rename.o
+ create mode 100644 testbin/badcall/bad_rmdir.o
+ create mode 100644 testbin/badcall/bad_sbrk.o
+ create mode 100644 testbin/badcall/bad_stat.o
+ create mode 100644 testbin/badcall/bad_symlink.o
+ create mode 100644 testbin/badcall/bad_time.o
+ create mode 100644 testbin/badcall/bad_waitpid.o
+ create mode 100644 testbin/badcall/bad_write.o
+ create mode 100755 testbin/badcall/badcall
+ create mode 100644 testbin/badcall/common_buf.o
+ create mode 100644 testbin/badcall/common_fds.o
+ create mode 100644 testbin/badcall/common_path.o
+ create mode 100644 testbin/badcall/driver.o
+ create mode 100755 testbin/bigfile/bigfile
+ create mode 100644 testbin/bigfile/bigfile.o
+ create mode 100755 testbin/conman/conman
+ create mode 100644 testbin/conman/conman.o
+ create mode 100755 testbin/crash/crash
+ create mode 100644 testbin/crash/crash.o
+ create mode 100755 testbin/ctest/ctest
+ create mode 100644 testbin/ctest/ctest.o
+ create mode 100755 testbin/dirconc/dirconc
+ create mode 100644 testbin/dirconc/dirconc.o
+ create mode 100755 testbin/dirseek/dirseek
+ create mode 100644 testbin/dirseek/dirseek.o
+ create mode 100755 testbin/dirtest/dirtest
+ create mode 100644 testbin/dirtest/dirtest.o
+ create mode 100644 testbin/f_test/f_read.o
+ create mode 100755 testbin/f_test/f_test
+ create mode 100644 testbin/f_test/f_test.o
+ create mode 100644 testbin/f_test/f_write.o
+ create mode 100755 testbin/farm/farm
+ create mode 100644 testbin/farm/farm.o
+ create mode 100755 testbin/faulter/faulter
+ create mode 100644 testbin/faulter/faulter.o
+ create mode 100755 testbin/filetest/filetest
+ create mode 100644 testbin/filetest/filetest.o
+ create mode 100755 testbin/forkbomb/forkbomb
+ create mode 100644 testbin/forkbomb/forkbomb.o
+ create mode 100755 testbin/forktest/forktest
+ create mode 100644 testbin/forktest/forktest.o
+ create mode 100755 testbin/guzzle/guzzle
+ create mode 100644 testbin/guzzle/guzzle.o
+ create mode 100755 testbin/hash/hash
+ create mode 100644 testbin/hash/hash.ho
+ create mode 100644 testbin/hash/hash.o
+ create mode 100755 testbin/hash/host-hash
+ create mode 100755 testbin/hog/hog
+ create mode 100644 testbin/hog/hog.o
+ create mode 100755 testbin/huge/huge
+ create mode 100644 testbin/huge/huge.o
+ create mode 100755 testbin/kitchen/kitchen
+ create mode 100644 testbin/kitchen/kitchen.o
+ create mode 100755 testbin/matmult/matmult
+ create mode 100644 testbin/matmult/matmult.o
+ create mode 100755 testbin/palin/palin
+ create mode 100644 testbin/palin/palin.o
+ create mode 100755 testbin/parallelvm/parallelvm
+ create mode 100644 testbin/parallelvm/parallelvm.o
+ create mode 100644 testbin/randcall/calls.c
+ create mode 100644 testbin/randcall/calls.o
+ create mode 100644 testbin/randcall/main.o
+ create mode 100755 testbin/randcall/randcall
+ create mode 100755 testbin/rmdirtest/rmdirtest
+ create mode 100644 testbin/rmdirtest/rmdirtest.o
+ create mode 100755 testbin/rmtest/rmtest
+ create mode 100644 testbin/rmtest/rmtest.o
+ create mode 100755 testbin/sink/sink
+ create mode 100644 testbin/sink/sink.o
+ create mode 100755 testbin/sort/sort
+ create mode 100644 testbin/sort/sort.o
+ create mode 100755 testbin/sty/sty
+ create mode 100644 testbin/sty/sty.o
+ create mode 100755 testbin/tail/tail
+ create mode 100644 testbin/tail/tail.o
+ create mode 100755 testbin/tictac/tictac
+ create mode 100644 testbin/tictac/tictac.o
+ create mode 100644 testbin/triplehuge/triple.o
+ create mode 100755 testbin/triplehuge/triplehuge
+ create mode 100644 testbin/triplehuge/triplehuge.o
+ create mode 120000 testbin/triplemat/triple.c
+ create mode 120000 testbin/triplemat/triple.h
+ create mode 100644 testbin/triplemat/triple.o
+ create mode 100755 testbin/triplemat/triplemat
+ create mode 100644 testbin/triplemat/triplemat.o
+ create mode 120000 testbin/triplesort/triple.c
+ create mode 120000 testbin/triplesort/triple.h
+ create mode 100644 testbin/triplesort/triple.o
+ create mode 100755 testbin/triplesort/triplesort
+ create mode 100644 testbin/triplesort/triplesort.o
+bash-4.2$ git tag asst0-end
+fatal: tag 'asst0-end' already exists
+bash-4.2$ git tag[K[K[K[K[K[K[Kasst0-end1
+bash: asst0-end1: command not found
+bash-4.2$ tag asst0-end1
+bash: tag: command not found
+bash-4.2$ git tag
+asst0-end
+asst0-eng
+bash-4.2$ git tag[K[K[K[K[K[K[Kgit tag asst0-end
+fatal: tag 'asst0-end' already exists
+bash-4.2$ git tag asst0-end1
+bash-4.2$ git tag rm asst0-end
+bash-4.2$ git tag rm asst0-end[Kg
+fatal: tag 'rm' already exists
+bash-4.2$ git tag rm asst0-eng[K[K[K[K[K[K[K[K[K[K[K[K[K -d rm asst-[K-[K0-end
+Deleted tag 'rm' (was ff02847)
+Deleted tag 'asst0-end' (was ff02847)
+bash-4.2$ git tag -d rm asst0-end[K[K[K[K[K[K[K[K[K[K[K[Kasst0-end[Kg
+Deleted tag 'asst0-eng' (was ff02847)
+bash-4.2$ clear
+[3;J[H[2Jbash-4.2$ git sho[K[K[Ktag show
+bash-4.2$ git show
+[?1h=commit 5a36961d680b810a25d1ac1c3daea0caaf3978e6[m
+Author: Matthew Roland Browning <mrb0094@tux050.eng.auburn.edu>[m
+Date:   Wed Sep 9 15:14:44 2020 -0500[m
+[m
+    project 2[m
+[m
+diff --git a/bin/cat/cat b/bin/cat/cat[m
+new file mode 100755[m
+index 0000000..41169f5[m
+Binary files /dev/null and b/bin/cat/cat differ[m
+diff --git a/bin/cat/cat.o b/bin/cat/cat.o[m
+new file mode 100644[m
+index 0000000..d219d4f[m
+Binary files /dev/null and b/bin/cat/cat.o differ[m
+diff --git a/bin/cat/depend.mk b/bin/cat/depend.mk[m
+index 94637dd..6f88e64 100644[m
+--- a/bin/cat/depend.mk[m
++++ b/bin/cat/depend.mk[m
+@@ -10,3 +10,4 @@ cat.o: \[m
+  $(OSTREE)/include/string.h \[m
+  $(OSTREE)/include/err.h \[m
+  $(OSTREE)/include/stdarg.h[m
++[m
+diff --git a/bin/cp/cp b/bin/cp/cp[m
+new file mode 100755[m
+index 0000000..b71b3c3[m
+Binary files /dev/null and b/bin/cp/cp differ[m
+diff --git a/bin/cp/cp.o b/bin/cp/cp.o[m
+new file mode 100644[m
+index 0000000..fe6a1e0[m
+Binary files /dev/null and b/bin/cp/cp.o differ[m
+diff --git a/bin/cp/depend.mk b/bin/cp/depend.mk[m
+index 10e8c59..de47503 100644[m
+--- a/bin/cp/depend.mk[m
++++ b/bin/cp/depend.mk[m
+@@ -9,3 +9,4 @@ cp.o: \[m
+  $(OSTREE)/include/kern/ioctl.h \[m
+  $(OSTREE)/include/err.h \[m
+  $(OSTREE)/include/stdarg.h[m
++[m
+diff --git a/bin/false/depend.mk b/bin/false/depend.mk[m
+index f0fbc95..fb0be2d 100644[m
+--- a/bin/false/depend.mk[m
++++ b/bin/false/depend.mk[m
+@@ -8,3 +8,4 @@ false.o: \[m
+  $(OSTREE)/include/kern/unistd.h \[m
+  $(OSTREE)/include/kern/ioctl.h \[m
+  $(OSTREE)/include/stdlib.h[m
++[m
+diff --git a/bin/false/false b/bin/false/false[m
+new file mode 100755[m
+index 0000000..c34fa6c[m
+Binary files /dev/null and b/bin/false/false differ[m
+diff --git a/bin/false/false.o b/bin/false/false.o[m
+new file mode 100644[m
+index 0000000..36c8148[m
+Binary files /dev/null and b/bin/false/false.o differ[m
+diff --git a/bin/ln/depend.mk b/bin/ln/depend.mk[m
+index ac1d5eb..490b5b1 100644[m
+--- a/bin/ln/depend.mk[m
++++ b/bin/ln/depend.mk[m
+@@ -11,3 +11,4 @@ ln.o: \[m
+  $(OSTREE)/include/string.h \[m
+  $(OSTREE)/include/err.h \[m
+:[K[K:[K[K:[K[K  $(OSTREE)/include/stdarg.h[m
+:[K[K:[K[K...skipping...
+Author: Matthew Roland Browning <mrb0094@tux050.eng.auburn.edu>[m
+Date:   Wed Sep 9 15:14:44 2020 -0500[m
+[m
+    project 2[m
+[m
+diff --git a/bin/cat/cat b/bin/cat/cat[m
+new file mode 100755[m
+index 0000000..41169f5[m
+Binary files /dev/null and b/bin/cat/cat differ[m
+diff --git a/bin/cat/cat.o b/bin/cat/cat.o[m
+new file mode 100644[m
+index 0000000..d219d4f[m
+Binary files /dev/null and b/bin/cat/cat.o differ[m
+diff --git a/bin/cat/depend.mk b/bin/cat/depend.mk[m
+index 94637dd..6f88e64 100644[m
+--- a/bin/cat/depend.mk[m
++++ b/bin/cat/depend.mk[m
+@@ -10,3 +10,4 @@ cat.o: \[m
+  $(OSTREE)/include/string.h \[m
+  $(OSTREE)/include/err.h \[m
+  $(OSTREE)/include/stdarg.h[m
++[m
+diff --git a/bin/cp/cp b/bin/cp/cp[m
+new file mode 100755[m
+index 0000000..b71b3c3[m
+Binary files /dev/null and b/bin/cp/cp differ[m
+diff --git a/bin/cp/cp.o b/bin/cp/cp.o[m
+new file mode 100644[m
+index 0000000..fe6a1e0[m
+Binary files /dev/null and b/bin/cp/cp.o differ[m
+diff --git a/bin/cp/depend.mk b/bin/cp/depend.mk[m
+index 10e8c59..de47503 100644[m
+--- a/bin/cp/depend.mk[m
++++ b/bin/cp/depend.mk[m
+@@ -9,3 +9,4 @@ cp.o: \[m
+  $(OSTREE)/include/kern/ioctl.h \[m
+  $(OSTREE)/include/err.h \[m
+  $(OSTREE)/include/stdarg.h[m
++[m
+diff --git a/bin/false/depend.mk b/bin/false/depend.mk[m
+index f0fbc95..fb0be2d 100644[m
+--- a/bin/false/depend.mk[m
++++ b/bin/false/depend.mk[m
+@@ -8,3 +8,4 @@ false.o: \[m
+  $(OSTREE)/include/kern/unistd.h \[m
+  $(OSTREE)/include/kern/ioctl.h \[m
+  $(OSTREE)/include/stdlib.h[m
++[m
+diff --git a/bin/false/false b/bin/false/false[m
+new file mode 100755[m
+index 0000000..c34fa6c[m
+Binary files /dev/null and b/bin/false/false differ[m
+diff --git a/bin/false/false.o b/bin/false/false.o[m
+new file mode 100644[m
+index 0000000..36c8148[m
+Binary files /dev/null and b/bin/false/false.o differ[m
+diff --git a/bin/ln/depend.mk b/bin/ln/depend.mk[m
+index ac1d5eb..490b5b1 100644[m
+--- a/bin/ln/depend.mk[m
++++ b/bin/ln/depend.mk[m
+@@ -11,3 +11,4 @@ ln.o: \[m
+  $(OSTREE)/include/string.h \[m
+  $(OSTREE)/include/err.h \[m
+  $(OSTREE)/include/stdarg.h[m
+:[K[K[HMcommit 5a36961d680b810a25d1ac1c3daea0caaf3978e6[m
+[65;1H[K:[K[K [K::[Kww[K:[K[K[?1l>bash-4.2$ git tag asst0-end
+bash-4.2$ git tag
+asst0-end
+asst0-end1
+show
+bash-4.2$ git tag -d e[Kasst0-end1 show
+Deleted tag 'asst0-end1' (was 5a36961)
+Deleted tag 'show' (was 5a36961)
+bash-4.2$ git push --tags
+Username for 'https://gitlab.eng.auburn.edu': mrb0094
+Password for 'https://mrb0094@gitlab.eng.auburn.edu': 
+To https://gitlab.eng.auburn.edu/mrb0094/os161.git
+ ! [rejected]        asst0-end -> asst0-end (already exists)
+error: failed to push some refs to 'https://gitlab.eng.auburn.edu/mrb0094/os161.git'
+hint: Updates were rejected because the tag already exists in the remote.
+bash-4.2$ git push --tags
+Username for 'https://gitlab.eng.auburn.edu': mrb0094
+Password for 'https://mrb0094@gitlab.eng.auburn.edu': 
+Counting objects: 1187, done.
+Delta compression using up to 16 threads.
+Compressing objects:   0% (1/1016)   Compressing objects:   1% (11/1016)   Compressing objects:   2% (21/1016)   Compressing objects:   3% (31/1016)   Compressing objects:   4% (41/1016)   Compressing objects:   5% (51/1016)   Compressing objects:   6% (61/1016)   Compressing objects:   7% (72/1016)   Compressing objects:   8% (82/1016)   Compressing objects:   9% (92/1016)   Compressing objects:  10% (102/1016)   Compressing objects:  11% (112/1016)   Compressing objects:  12% (122/1016)   Compressing objects:  13% (133/1016)   Compressing objects:  14% (143/1016)   Compressing objects:  15% (153/1016)   Compressing objects:  16% (163/1016)   Compressing objects:  17% (173/1016)   Compressing objects:  18% (183/1016)   Compressing objects:  19% (194/1016)   Compressing objects:  20% (204/1016)   Compressing objects:  21% (214/1016)   Compressing objects:  22% (224/1016)   Compressing objects:  23% (234/1016)   Compressing objects:  24% (244/1016)   Compressing objects:  25% (254/1016)   Compressing objects:  26% (265/1016)   Compressing objects:  27% (275/1016)   Compressing objects:  28% (285/1016)   Compressing objects:  29% (295/1016)   Compressing objects:  30% (305/1016)   Compressing objects:  31% (315/1016)   Compressing objects:  32% (326/1016)   Compressing objects:  33% (336/1016)   Compressing objects:  34% (346/1016)   Compressing objects:  35% (356/1016)   Compressing objects:  36% (366/1016)   Compressing objects:  37% (376/1016)   Compressing objects:  38% (387/1016)   Compressing objects:  39% (397/1016)   Compressing objects:  40% (407/1016)   Compressing objects:  41% (417/1016)   Compressing objects:  42% (427/1016)   Compressing objects:  43% (437/1016)   Compressing objects:  44% (448/1016)   Compressing objects:  45% (458/1016)   Compressing objects:  46% (468/1016)   Compressing objects:  47% (478/1016)   Compressing objects:  48% (488/1016)   Compressing objects:  49% (498/1016)   Compressing objects:  50% (508/1016)   Compressing objects:  51% (519/1016)   Compressing objects:  52% (529/1016)   Compressing objects:  53% (539/1016)   Compressing objects:  54% (549/1016)   Compressing objects:  55% (559/1016)   Compressing objects:  56% (569/1016)   Compressing objects:  57% (580/1016)   Compressing objects:  58% (590/1016)   Compressing objects:  59% (600/1016)   Compressing objects:  60% (610/1016)   Compressing objects:  61% (620/1016)   Compressing objects:  62% (630/1016)   Compressing objects:  63% (641/1016)   Compressing objects:  64% (651/1016)   Compressing objects:  65% (661/1016)   Compressing objects:  66% (671/1016)   Compressing objects:  67% (681/1016)   Compressing objects:  68% (691/1016)   Compressing objects:  69% (702/1016)   Compressing objects:  70% (712/1016)   Compressing objects:  71% (722/1016)   Compressing objects:  72% (732/1016)   Compressing objects:  73% (742/1016)   Compressing objects:  74% (752/1016)   Compressing objects:  75% (762/1016)   Compressing objects:  76% (773/1016)   Compressing objects:  77% (783/1016)   Compressing objects:  78% (793/1016)   Compressing objects:  79% (803/1016)   Compressing objects:  80% (813/1016)   Compressing objects:  81% (823/1016)   Compressing objects:  82% (834/1016)   Compressing objects:  83% (844/1016)   Compressing objects:  84% (854/1016)   Compressing objects:  85% (864/1016)   Compressing objects:  86% (874/1016)   Compressing objects:  87% (884/1016)   Compressing objects:  88% (895/1016)   Compressing objects:  89% (905/1016)   Compressing objects:  90% (915/1016)   Compressing objects:  91% (925/1016)   Compressing objects:  92% (935/1016)   Compressing objects:  93% (945/1016)   Compressing objects:  94% (956/1016)   Compressing objects:  95% (966/1016)   Compressing objects:  96% (976/1016)   Compressing objects:  97% (986/1016)   Compressing objects:  98% (996/1016)   Compressing objects:  99% (1006/1016)   Compressing objects: 100% (1016/1016)   Compressing objects: 100% (1016/1016), done.
+Writing objects:   0% (1/1187)   Writing objects:   1% (12/1187)   Writing objects:   2% (24/1187)   Writing objects:   3% (36/1187)   Writing objects:   4% (48/1187)   Writing objects:   5% (60/1187)   Writing objects:   6% (72/1187)   Writing objects:   7% (84/1187)   Writing objects:   8% (95/1187)   Writing objects:   9% (107/1187)   Writing objects:  10% (119/1187)   Writing objects:  11% (131/1187)   Writing objects:  12% (143/1187)   Writing objects:  13% (155/1187)   Writing objects:  14% (167/1187)   Writing objects:  15% (179/1187)   Writing objects:  16% (190/1187)   Writing objects:  17% (202/1187)   Writing objects:  18% (214/1187)   Writing objects:  19% (226/1187)   Writing objects:  20% (238/1187)   Writing objects:  21% (250/1187)   Writing objects:  22% (262/1187)   Writing objects:  23% (274/1187)   Writing objects:  24% (285/1187)   Writing objects:  25% (297/1187)   Writing objects:  26% (309/1187)   Writing objects:  27% (321/1187)   Writing objects:  28% (333/1187)   Writing objects:  29% (345/1187)   Writing objects:  30% (357/1187)   Writing objects:  31% (368/1187)   Writing objects:  32% (380/1187)   Writing objects:  33% (392/1187)   Writing objects:  34% (404/1187)   Writing objects:  35% (416/1187)   Writing objects:  36% (428/1187)   Writing objects:  37% (440/1187)   Writing objects:  38% (452/1187)   Writing objects:  39% (463/1187)   Writing objects:  40% (475/1187)   Writing objects:  41% (487/1187)   Writing objects:  42% (499/1187)   Writing objects:  43% (511/1187)   Writing objects:  44% (523/1187)   Writing objects:  45% (535/1187)   Writing objects:  46% (547/1187)   Writing objects:  47% (558/1187)   Writing objects:  48% (570/1187)   Writing objects:  49% (582/1187)   Writing objects:  50% (594/1187)   Writing objects:  51% (606/1187)   Writing objects:  52% (618/1187)   Writing objects:  53% (630/1187)   Writing objects:  54% (641/1187)   Writing objects:  55% (653/1187)   Writing objects:  56% (665/1187)   Writing objects:  57% (677/1187)   Writing objects:  58% (689/1187)   Writing objects:  59% (701/1187)   Writing objects:  60% (713/1187)   Writing objects:  61% (725/1187)   Writing objects:  62% (736/1187)   Writing objects:  63% (748/1187)   Writing objects:  64% (760/1187)   Writing objects:  65% (772/1187)   Writing objects:  66% (784/1187)   Writing objects:  67% (796/1187)   Writing objects:  68% (808/1187)   Writing objects:  69% (820/1187)   Writing objects:  70% (831/1187)   Writing objects:  71% (843/1187)   Writing objects:  72% (855/1187)   Writing objects:  73% (867/1187)   Writing objects:  74% (879/1187)   Writing objects:  75% (891/1187)   Writing objects:  76% (903/1187)   Writing objects:  77% (914/1187)   Writing objects:  78% (926/1187)   Writing objects:  79% (938/1187)   Writing objects:  80% (950/1187)   Writing objects:  81% (962/1187)   Writing objects:  82% (974/1187)   Writing objects:  83% (986/1187)   Writing objects:  84% (998/1187)   Writing objects:  85% (1009/1187)   Writing objects:  86% (1021/1187)   Writing objects:  87% (1033/1187)   Writing objects:  88% (1045/1187)   Writing objects:  89% (1057/1187)   Writing objects:  90% (1069/1187)   Writing objects:  91% (1081/1187)   Writing objects:  92% (1093/1187)   Writing objects:  93% (1104/1187)   Writing objects:  94% (1116/1187)   Writing objects:  95% (1128/1187)   Writing objects:  96% (1140/1187)   Writing objects:  97% (1152/1187), 1.05 MiB | 1.15 MiB/s   Writing objects:  98% (1164/1187), 1.05 MiB | 1.15 MiB/s   Writing objects:  99% (1176/1187), 1.05 MiB | 1.15 MiB/s   Writing objects: 100% (1187/1187), 1.05 MiB | 1.15 MiB/s   Writing objects: 100% (1187/1187), 1.08 MiB | 1.15 MiB/s, done.
+Total 1187 (delta 304), reused 692 (delta 96)
+remote: Resolving deltas:   0% (0/304)[Kremote: Resolving deltas:   1% (4/304)[Kremote: Resolving deltas:   2% (7/304)[Kremote: Resolving deltas:   3% (10/304)[Kremote: Resolving deltas:   4% (13/304)[Kremote: Resolving deltas:   5% (16/304)[Kremote: Resolving deltas:   6% (19/304)[Kremote: Resolving deltas:   7% (22/304)[Kremote: Resolving deltas:   8% (25/304)[Kremote: Resolving deltas:   9% (28/304)[Kremote: Resolving deltas:  10% (31/304)[Kremote: Resolving deltas:  11% (34/304)[Kremote: Resolving deltas:  12% (37/304)[Kremote: Resolving deltas:  13% (40/304)[Kremote: Resolving deltas:  14% (43/304)[Kremote: Resolving deltas:  15% (46/304)[Kremote: Resolving deltas:  19% (58/304)[Kremote: Resolving deltas:  44% (134/304)[Kremote: Resolving deltas:  46% (141/304)[Kremote: Resolving deltas:  50% (152/304)[Kremote: Resolving deltas:  52% (160/304)[Kremote: Resolving deltas:  53% (162/304)[Kremote: Resolving deltas:  54% (165/304)[Kremote: Resolving deltas:  55% (170/304)[Kremote: Resolving deltas:  56% (171/304)[Kremote: Resolving deltas:  59% (181/304)[Kremote: Resolving deltas:  60% (183/304)[Kremote: Resolving deltas:  61% (188/304)[Kremote: Resolving deltas:  62% (189/304)[Kremote: Resolving deltas:  63% (192/304)[Kremote: Resolving deltas:  64% (195/304)[Kremote: Resolving deltas:  65% (200/304)[Kremote: Resolving deltas:  66% (201/304)[Kremote: Resolving deltas:  67% (204/304)[Kremote: Resolving deltas:  68% (207/304)[Kremote: Resolving deltas:  69% (210/304)[Kremote: Resolving deltas:  70% (213/304)[Kremote: Resolving deltas:  71% (217/304)[Kremote: Resolving deltas:  72% (220/304)[Kremote: Resolving deltas:  75% (229/304)[Kremote: Resolving deltas:  76% (232/304)[Kremote: Resolving deltas:  77% (236/304)[Kremote: Resolving deltas:  78% (238/304)[Kremote: Resolving deltas:  79% (241/304)[Kremote: Resolving deltas:  80% (244/304)[Kremote: Resolving deltas:  81% (247/304)[Kremote: Resolving deltas:  82% (250/304)[Kremote: Resolving deltas:  83% (253/304)[Kremote: Resolving deltas:  84% (258/304)[Kremote: Resolving deltas:  85% (261/304)[Kremote: Resolving deltas:  86% (262/304)[Kremote: Resolving deltas:  87% (265/304)[Kremote: Resolving deltas:  88% (268/304)[Kremote: Resolving deltas:  89% (273/304)[Kremote: Resolving deltas:  90% (274/304)[Kremote: Resolving deltas:  91% (278/304)[Kremote: Resolving deltas:  97% (297/304)[Kremote: Resolving deltas:  98% (298/304)[Kremote: Resolving deltas:  99% (302/304)[Kremote: Resolving deltas: 100% (304/304)[Kremote: Resolving deltas: 100% (304/304), done.[K
+To https://gitlab.eng.auburn.edu/mrb0094/os161.git
+ * [new tag]         asst0-end -> asst0-end
+bash-4.2$ git archive -p[Ko ../asst0/project2_source.tgz HEAD
+bash-4.2$ exit
+exit
+
+Script done on Wed 09 Sep 2020 03:18:14 PM CDT
