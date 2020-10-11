@@ -1,0 +1,20 @@
+1. What happens to a thread when it exits (i.e., calls thread_exit())? What about when it sleeps?
+	When a thread exits it decreases the program counter and removes the memory space. Now when it sleeps, it simply signals for something else to take over. It can get control back by using the wakeup() method.
+2. What function(s) handle(s) a context switch?
+	The functions mi_switch and md_switch handle a context switch.
+3. How many thread states are there? What are they?
+	The thread states are S_RUN, S_SLEEP, S_READY, and S_ZOMB, so there are 4.
+4. What does it mean to turn interrupts off? How is this accomplished? Why is it important to turn off interrupts in the thread subsystem code?
+	When you turn interrupts off, no thread can replace the current one, they are placed at such a low level that even hardware can't affect this. You can accomplish this by setting SPL to high, and this is important so that threads can finish properly.
+5. What happens when a thread wakes up another thread? How does a sleeping thread get to run again?
+	A thread can wake up another thread by calling them with threadlist_remhead(), this then goes through a channel like a semaphore and they are woken up. The other thread can then go back in the wait line.
+6. What function is responsible for choosing the next thread to run?
+	The function scheduler(void) is responsible for choosing the next thread to run.
+7. How does that function pick the next thread?
+	This function schedules each thread equally, so it just goes to the next one in the list.
+8. What role does the hardware timer play in scheduling? What hardware independent function is called on a timer interrupt?
+	The hardware timer calls the hardlock method and the independent function thread_yield is called on a timer interrupt.
+9. Describe how thread_sleep() and thread_wakeup() are used to implement semaphores. What is the purpose of the argument passed to thread_sleep()?
+	These two methods are used to help synchronize everything. When one process finishes with resources, it wakeups the other one and goes to sleep itself, and the argument passed is for identifying the semaphore pointer.
+10. Why does the lock API in OS/161 provide lock_do_i_hold(), but not lock_get_holder()?
+	It provides lock_do_i_hold() because locks can only be released by the one that got them in the first place so no one else can.
