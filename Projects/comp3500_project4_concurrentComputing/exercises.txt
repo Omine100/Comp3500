@@ -1,0 +1,12 @@
+Matthew Browning
+mrb0094
+904021064
+
+Option Chosen: 1
+
+1. Explain how to avoid starvation in your implemenation.
+	When it comes to avoiding starvation in this program, there are multiple sempahores that are implemented that allow for this to happen. There are wait sempahores for both the mice and cats, dish situation sempahores (describing if a dish is in use or if both are available), then there are also sempahores for if there are no cats eating as well as no mice eating.
+	By having all of these sempahores, every situation can be accounted for and there will be no starvation because it allows for each process to get access to the resources, use them, and then release them back into the "food bowl".
+
+2. Comment on your experience of implementing the Cats-and-Mice program. Can you derive any priniples about the use of the sempahore synchronization primitives?
+	This project was incredibly difficult. I don't know if it was due to my apparently sub-level understanding of sempahore implementations, but it took forever to figure out the initial values of everything. The changing of each individual value, the testing of those values, and then repeating until I got this right. I feel as though a lot of these problems were just created by how I was going about testing, and there was probably an easier way to do this, if I were to open up more instances of my programming environment. I think besides the initial values of the sempahores, the rest of sempahore synchronization was rather easy, it sort of just falls into place because they follow that initial "order".
