@@ -1,8 +1,8 @@
 diff --git a/kern/asst1/catsem.c b/kern/asst1/catsem.c
-index dcb257b..64598d4 100644
+index dcb257b..6ed4d26 100644
 --- a/kern/asst1/catsem.c
 +++ b/kern/asst1/catsem.c
-@@ -2,82 +2,70 @@
+@@ -2,82 +2,154 @@
   * catsem.c
   *
   * 30-1-2003 : GWA : Stub functions created for CS161 Asst1.
@@ -35,26 +35,42 @@ index dcb257b..64598d4 100644
 - * Number of food bowls.
   */
  
-+//Number of bowls, cats, and mice
++//Number of bowls, cats, mice, and time
  #define NFOODBOWLS 2
--
++#define NCATS 6
++#define NMICE 2
+ 
 -/*
 - * Number of cats.
 - */
--
- #define NCATS 6
--
++#define true 1
++#define false 0
++typedef char bool;
+ 
+-#define NCATS 6
++//Variable and resource declarations
++static const char *cat_array[6] = {"A", "B", "C", "D", "E", "F"};
++static const char *mice_array[2] = {"G", "H"};
+ 
 -/*
 - * Number of mice.
 - */
--
- #define NMICE 2
++volatile bool all_dishes_available;
++struct semaphore *done;
++struct semaphore *mutex;
++struct semaphore *dish_mutex;
++volatile bool dish1_busy;
++volatile bool dish2_busy;
++struct semaphore *count;
  
-+//Variable and resource declarations
-+struct semaphore *resources;
-+int bowl_first = 0, bowl_second = 0;
-+int cat_array[6] = {0,0,0,0,0,0};
-+int mice_array[2] = {0,0};
+-#define NMICE 2
++struct semaphore *cats_queue;
++volatile int cats_wait_count;
++volatile bool no_cat_eat;
+ 
++struct semaphore *mice_queue;
++volatile int mice_wait_count;
++volatile bool no_mouse_eat;
  
  /*
 - * 
@@ -86,34 +102,100 @@ index dcb257b..64598d4 100644
 -        /*
 -         * Avoid unused variable warnings.
 -         */
--
 +static void catsem(void * unusedpointer, unsigned long catnumber) {
-         (void) unusedpointer;
++	volatile bool first_cat_eat;
++        volatile bool another_cat_eat;
++        volatile int my_dish; 
+ 
+-        (void) unusedpointer;
++	(void) unusedpointer;
          (void) catnumber;
 +
-+	P(resources);
-+	while (cat_array[catnumber] < 4) {
-+		if (bowl_first == 0 && bowl_second != 2) {
-+			bowl_first = 1;
-+			clocksleep(1);
-+			bowl_first = 0;
-+			cat_array[catnumber] = cat_array[catnumber] + 1;
-+			kprintf("Cat finished eating at bowl 1");
-+		} else if (bowl_first != 2 && bowl_second == 0) {
-+			bowl_second = 1;
-+			clocksleep(1);
-+			bowl_second = 0;
-+			cat_array[catnumber] = cat_array[catnumber] + 1;
-+			kprintf("Cat finished eating at bowl 2");
++	int i;
++	for (i = 0; i < 4; i++) {
++		//First cat, no mouse
++		P(mutex);
++		if (all_dishes_available == true) {
++			all_dishes_available = false;
++			V(cats_queue);
++		}
++		cats_wait_count++;
++		V(mutex);
++
++		//First cat, second cat wait
++		P(cats_queue);
++		if (no_cat_eat == true) {
++			no_cat_eat = false;
++			first_cat_eat = true;
 +		} else {
-+			kprintf("Cat does not eat");
++			first_cat_eat = false;
++		}
++
++		//First cat controls the kitchen
++		if (first_cat_eat == true) {
++			P(mutex);
++			if (cats_wait_count > 1) {
++				another_cat_eat = true;
++				V(cats_queue);
++			} else {
++				another_cat_eat = false;
++			}
++			V(mutex);
++		}
++		kprintf("Cat in the kitchen named %s \n", cat_array[catnumber]);
++
++		//First and non-first cat in the kitchen
++		P(dish_mutex);
++		if (dish1_busy == false) {
++			dish1_busy = true;
++			my_dish = 1;
++		} else {
++			dish2_busy = true;
++			my_dish = 2;
++		}
++		V(dish_mutex);
++		kprintf("Cat in the kitchen named %s \n", cat_array[catnumber]);
++		clocksleep(1);
++		kprintf("Cat finished eating named %s \n", cat_array[catnumber]);
++
++		//First and non-first cat in the kitchen, release dishes
++		P(dish_mutex);
++		if (my_dish == 1) {
++			dish1_busy = false;
++		} else {
++			dish2_busy = false;
++		}
++		V(dish_mutex);
++		P(mutex);
++		cats_wait_count--;
++		V(mutex);
++
++		//First cat is leaving the kitchen
++		if (first_cat_eat == true) {
++			if (another_cat_eat == true) {
++				P(done);
++			}
++			kprintf("First cat is leaving.\n");
++			no_cat_eat = true;
++			P(mutex);
++			if (mice_wait_count > 0) {
++				V(mice_queue);
++			} else if (cats_wait_count > 0) {
++				V(cats_queue);
++			} else {
++				all_dishes_available = true;
++			}
++			V(mutex);
++		} else {
++			kprintf("Non-first cat is leaving");
++			V(done);
 +		}
 +	}
-+	V(resources);
++	V(count);
  }
          
  
-@@ -88,26 +76,33 @@ catsem(void * unusedpointer,
+@@ -88,26 +160,99 @@ catsem(void * unusedpointer,
   *      void * unusedpointer: currently unused.
   *      unsigned long mousenumber: holds the mouse identifier from 0 to 
   *              NMICE - 1.
@@ -134,34 +216,99 @@ index dcb257b..64598d4 100644
 -        /*
 -         * Avoid unused variable warnings.
 -         */
--
 +static void mousesem(void * unusedpointer, unsigned long mousenumber) {
++	volatile bool first_mouse_eat;
++        volatile bool another_mouse_eat;
++        volatile int my_dish;
+ 
          (void) unusedpointer;
          (void) mousenumber;
++	
++	int i;
++	for (i = 0; i < 4; i++) {
++		//First mouse with no cat
++		P(mutex);
++		if (all_dishes_available == true) {
++			all_dishes_available = false;
++			V(mice_queue);
++		}
++		mice_wait_count++;
++		V(mutex);
 +
-+	P(resources);
-+	while (mice_array[mousenumber] < 4) {
-+		if (bowl_first == 0 && bowl_second != 1) {
-+			bowl_first = 2;
-+			clocksleep(1);
-+			bowl_first = 0;
-+			mice_array[mousenumber] = mice_array[mousenumber] + 1;
-+			kprintf("Mouse finished eating at bowl 1");
-+		} else if (bowl_first != 1 && bowl_second == 0) {
-+			bowl_second = 2;
-+			clocksleep(1);
-+			bowl_second = 0;
-+			mice_array[mousenumber] = mice_array[mousenumber] + 1;
-+			kprintf("Mouse finished eating at bowl 2");
++		//First mouse, second mouse wait
++		P(mice_queue);
++		if (no_mouse_eat == true) {
++          		no_mouse_eat = false;
++          		first_mouse_eat = true;
++       		} else {
++          		first_mouse_eat = false;
++        	}
++
++		//First mouse controls mice
++		if (first_mouse_eat == true) {
++         		P(mutex);
++          		if (mice_wait_count > 1) {
++            			another_mouse_eat = true;
++            			V(mice_queue);
++          		} else {
++            			another_mouse_eat = false;
++          		}
++          	V(mutex);
++        	}
++		kprintf("Mouse entered the kitchen named %s \n", mice_array[mousenumber]);
++
++		//Both mice in the kitchen
++		P(dish_mutex);
++		if (dish1_busy == false) {
++			dish1_busy = true;
++			my_dish = 1;
 +		} else {
-+			kprintf("Mouse does not eat");
++			dish2_busy = true;
++			my_dish = 2;
++		}
++		V(dish_mutex);
++		kprintf("Mouse in the kitchen named %s \n", mice_array[mousenumber]);
++		clocksleep(1);
++		kprintf("Mouse finished eating named %s \n", mice_array[mousenumber]);
++		
++		//Both mice in the kitchen, release dishes
++		P(dish_mutex);
++		if (my_dish == 1) {
++			dish1_busy = false;
++		} else {
++			dish2_busy = false;
++		}
++		V(dish_mutex);
++		P(mutex);
++          	mice_wait_count--;
++        	V(mutex);
++
++		//First mouse is leaving the kitchen
++		if (first_mouse_eat == true) {
++			if (another_mouse_eat == true) {
++				P(done);
++			}
++			kprintf("First mouse is leaving.\n");
++			no_mouse_eat = true;
++			P(mutex);
++			if (cats_wait_count > 0) {
++				V(cats_queue);
++			} else if (mice_wait_count > 0) {
++				V(mice_queue);
++			} else {
++				all_dishes_available = true;
++			}
++			V(mutex);
++		} else {
++			kprintf("Second mouse is leaving the kitchen");
++			V(done);
 +		}
 +	}
-+	V(resources);
++	V(count);
  }
  
  
-@@ -117,24 +112,13 @@ mousesem(void * unusedpointer,
+@@ -117,50 +262,44 @@ mousesem(void * unusedpointer,
   * Arguments:
   *      int nargs: unused.
   *      char ** args: unused.
@@ -179,7 +326,6 @@ index dcb257b..64598d4 100644
 -            char ** args)
 -{
 +int catmousesem(int nargs, char ** args) {
-+	resources = sem_create("bowls", 2);
          int index, error;
 -   
 -        /*
@@ -188,7 +334,24 @@ index dcb257b..64598d4 100644
  
          (void) nargs;
          (void) args;
-@@ -144,23 +128,14 @@ catmousesem(int nargs,
++
++	cats_queue = sem_create("cats semaphore", (int) 0);        
++        mice_queue = sem_create("mice semaphore", (int) 0);
++	done = sem_create("done eating semaphore", (int) 0);
++        mutex = sem_create("mutex", (int) 1);
++        dish_mutex = sem_create("dish semaphore", (int) 1);
++        count = sem_create("count", (int) 0);
++
++	all_dishes_available = true;
++        dish1_busy = false;
++        dish2_busy = false;
++        mice_wait_count = 0;
++        cats_wait_count = 0;
++        no_cat_eat = true;
++        no_mouse_eat = true;
+    
+         /*
+          * Start NCATS catsem() threads.
           */
  
          for (index = 0; index < NCATS; index++) {
@@ -214,7 +377,7 @@ index dcb257b..64598d4 100644
                  }
          }
          
-@@ -169,30 +144,19 @@ catmousesem(int nargs,
+@@ -169,29 +308,31 @@ catmousesem(int nargs,
           */
  
          for (index = 0; index < NMICE; index++) {
@@ -239,16 +402,28 @@ index dcb257b..64598d4 100644
 +                        panic("mousesem: thread_fork failed: %s\n", strerror(error));
                  }
          }
--
-         return 0;
- }
  
--
+-        return 0;
+-}
++	int i;
++	for (i = 0; i < (NCATS + NMICE); i++) {
++		P(count);
++	}
++
++	sem_destroy(cats_queue);
++        sem_destroy(mice_queue);
++	sem_destroy(done);
++        sem_destroy(mutex);
++        sem_destroy(dish_mutex);
++        sem_destroy(count);
+ 
++	return 0;
++}
+ 
  /*
   * End of catsem.c
-  */
 diff --git a/kern/compile/ASST1/catsem.o b/kern/compile/ASST1/catsem.o
-index 46e4b42..37bb3cb 100644
+index 46e4b42..bb9783c 100644
 Binary files a/kern/compile/ASST1/catsem.o and b/kern/compile/ASST1/catsem.o differ
 diff --git a/kern/compile/ASST1/depend.mk b/kern/compile/ASST1/depend.mk
 index 3861979..ac05469 100644
@@ -265,24 +440,24 @@ index 3861979..ac05469 100644
    machine/types.h ../../include/kern/types.h ../../include/lib.h \
    machine/setjmp.h ../../include/synch.h ../../include/array.h \
 diff --git a/kern/compile/ASST1/kernel b/kern/compile/ASST1/kernel
-index 2276ae6..841de7b 100755
+index 2276ae6..7dd24d5 100755
 Binary files a/kern/compile/ASST1/kernel and b/kern/compile/ASST1/kernel differ
 diff --git a/kern/compile/ASST1/vers.c b/kern/compile/ASST1/vers.c
-index 364b4fb..4880f58 100644
+index 364b4fb..7b89ab7 100644
 --- a/kern/compile/ASST1/vers.c
 +++ b/kern/compile/ASST1/vers.c
 @@ -1,3 +1,3 @@
  /* This file is automatically generated. Edits will be lost.*/
 -const int buildversion = 54;
-+const int buildversion = 55;
++const int buildversion = 56;
  const char buildconfig[] = "ASST1";
 diff --git a/kern/compile/ASST1/vers.o b/kern/compile/ASST1/vers.o
-index 81a4c6e..dafa9a8 100644
+index 81a4c6e..b7697f4 100644
 Binary files a/kern/compile/ASST1/vers.o and b/kern/compile/ASST1/vers.o differ
 diff --git a/kern/compile/ASST1/version b/kern/compile/ASST1/version
-index fb1e7bc..c3f407c 100644
+index fb1e7bc..f6b91e0 100644
 --- a/kern/compile/ASST1/version
 +++ b/kern/compile/ASST1/version
 @@ -1 +1 @@
 -54
-+55
++56
