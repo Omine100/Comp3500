@@ -6,39 +6,39 @@
 
 #include <iostream>
 #include <string>
+#include <cstdio>
+#include <cstring>
+#include "algorithms.h"
+#include "fileReader.h"
 #include "outputPrinter.h"
 using namespace std;
 
-//Function: Reading the users input
-void inputReader();
-
-//This is going to be the structure for the task simulation
-struct task {
-    int arrival_time;
-    int burst_time;
-    bool isFinished;
-};
-
-//Method: Start of the project
-int main() {
-    inputReader();
-    outputPrinter();
-}
-
-//Method: Reading the users input
-void inputReader() {
+int main(int argc, char** argv) {
     string fileName;
+    int policyType; //FCFS = 0; SRTF = 1; RR = 2
+    int timeQuantum;
 
-    cout << "\t\tWelcome to the CPU Scheduler\n";
-    cout << "\nThis is where you can input files into the scheduler.\n" << "Most files are of the format \'task_list_file [FCFS|RR|SRTF] [time_quantum]\'.\n";
-    cout << "\tThe [time_quantum] is only used in the case of RR";
-
-    while (fileName.empty()) {
-        cout << "\nEnter file name: ";
-        getline(cin, fileName);
-
-        if (fileName.empty()) {
-            cout << "Please enter a non-empty file name.";
+    if (strcmp(argv[0], "scheduler")) {
+        cout << "Usage: scheduler task_list_file [FCFS|RR|SRTF] [time_quantum]" << argv[1] << endl;
+    } else {
+        fileName = argv[2];
+        if (argv[2] == "FCFS") {
+            int policyType = 0;
+        } else if (argv[2] == "SRTF") {
+            int policyType = 1;
+        } else if (argv[2] == "RR") {
+            int policyType = 2;
+            timeQuantum = stoi(argv[2]);
+        } else {
+            cout << "Unsupported policy type.";
         }
+
+        cout << "Scheduling Policy: " << argv[1];
+        fileReader(fileName);
+        // cout << "\n==================================================================";
+        // algorithmPicker(policyType);
+        // cout << "\n==================================================================";
+        // outputPrinter();
+        // cout << "\n==================================================================";
     }
 }
