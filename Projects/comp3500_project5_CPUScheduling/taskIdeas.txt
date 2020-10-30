@@ -1,8 +1,0 @@
-for (args[in file] / 3 (for the number we use for each process))
-	arg[0] = process number so not relevant
-	task[0].executionTime = arg[1];
-	task[0].arrivalTime = arg[2];
-
-	or task[0] = {arg[1], arg[2]};
-
-	arg[3] = process number so not relevant;
