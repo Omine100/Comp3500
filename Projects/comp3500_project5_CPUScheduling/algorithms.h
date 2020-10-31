@@ -5,6 +5,14 @@
 * Basically... That is what this file is dedicated to
 */
 
+#include <iostream>
+#include <cstdio>
+#include <cstring>
+#include <string>
+#include <fstream>
+using namespace std;
+
+void algorithmPicker(string policyType, task * tasks);
 void firstComeFirstServe(task * tasks);
 void shortestRemainingTimeFirst(task * tasks);
 void roundRobin(task * tasks);
