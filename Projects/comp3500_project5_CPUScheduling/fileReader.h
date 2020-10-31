@@ -25,7 +25,7 @@ void fileReader(string fileName) {
         task tasks[10000];
 
         while (getline(file, line)) {
-            tasks[i] = {stoi(line.substr(2, 3)), stoi(line.substr(4, 5))};
+            tasks[i] = {stoi(line.substr(2, 3)), stoi(line.substr(4, 5)), 0, 0, 0};
         }
 
         file.close();
