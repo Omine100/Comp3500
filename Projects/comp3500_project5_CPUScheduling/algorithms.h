@@ -5,23 +5,28 @@
 * Basically... That is what this file is dedicated to
 */
 
-void firstComeFirstServe();
-void shortestRemainingTimeFirst();
-void roundRobin();
+void firstComeFirstServe(task * tasks);
+void shortestRemainingTimeFirst(task * tasks);
+void roundRobin(task * tasks);
 
-void algorithmPicker(int policyType) {
-    if (policyType == 0) {
-        firstComeFirstServe();
-    } else if (policyType == 1) {
-        shortestRemainingTimeFirst();
+void algorithmPicker(string policyType, task * tasks) {
+    if (policyType == "FCFS") {
+        firstComeFirstServe(tasks);
+    } else if (policyType == "SRTF") {
+        shortestRemainingTimeFirst(tasks);
     } else {
-        roundRobin();
+        roundRobin(tasks);
     }
 }
 
-void firstComeFirstServe() {
+void firstComeFirstServe(task * tasks) {
+    //for (int i = tasks[i].arrivalTime; i < tasks.size(); i++) {
+    //  while (arrivalTime = arrivalTime) {
+    //        
+    //  }   
+    //}
 }
 
-void shortestRemainingTimeFirst() {}
+void shortestRemainingTimeFirst(task * tasks) {}
 
-void roundRobin() {}
+void roundRobin(task * tasks) {}

@@ -17,7 +17,7 @@ struct task {
     int turnaroundTime;
 };
 
-task fileReader(string fileName) { //Maybe change this to spit out one at a time, line reader?
+task * fileReader(string fileName) { //Maybe change this to spit out one at a time, line reader?
     string line;
     ifstream file (fileName);
     task tasks[10000];

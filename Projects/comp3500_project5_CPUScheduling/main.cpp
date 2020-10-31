@@ -16,7 +16,9 @@ int main() {
     string policyType = getPolicyTypeText();
     int timeQuantum = getTimeQuantumText();
 
-    fileReader(fileName);
+    task * tasks = fileReader(fileName);
+
+    algorithmPicker(policyType, tasks);
 
     outputPrinter();
 }
