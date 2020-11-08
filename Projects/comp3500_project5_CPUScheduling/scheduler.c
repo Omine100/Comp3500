@@ -45,13 +45,51 @@ stats* fcfs_policy(task_t task_array[], stats stats_array[], int count) {
 }
 
 stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int count, int time_quantum) {
-    printf("Testing RR\n");
+    //Variables
+    int process, timeCount = 0, cont = 1;
+    int remainingBurst[count];
+    
+    for (process = 0; process < count; process++) {
+        remainingBurst[process] = task_array[process].burst_time;
+    }
+
+    while (cont == 1) {
+        int done  = 1;
+        for (process = 0; process < count; process++) {
+            if (remainingBurst[process] > 0) {
+                done = 0;
+                if (remainingBurst[process] > time_quantum) {
+                    printf("<time %d> process %d is running\n", timeCount, task_array[process].pid);
+                    timeCount = timeCount + time_quantum;
+                    remainingBurst[process] = remainingBurst[process] - time_quantum;
+                } else {
+                    timeCount = timeCount + remainingBurst[process];
+                    remainingBurst[process] = 0;
+                    stats_array[process].waiting_time = timeCount - task_array[process].burst_time - task_array[process].arrival_time;
+                    stats_array[process].response_time = timeCount - task_array[process].burst_time - task_array[process].arrival_time;
+                    stats_array[process].turnaround_time = timeCount - task_array[process].arrival_time;
+                }
+
+                if (remainingBurst[process] == 0) {
+                    printf("<time %d> process %d is finished...\n", timeCount, task_array[process].pid);
+                }
+            }
+
+        }
+
+        if (done == 1) {
+            break;
+        }
+    }
+    printf("<time %d> All processes finish ......\n", timeCount);
+
     return stats_array;
 }
 
 stats* srtf_policy(task_t task_array[], stats stats_array[], int finish_array[], int count) {
     //Variables
-    int process, burstCount, timeCount = 0, complete = 0, minTime = INT_MAX, shortest = 0, check = 0;
+    int process, burstCount, timeCount = 0, complete = 0;
+    int minTime = MAX_TIME, shortest = 0, check = 0;
     int remainingTime[count];
 
     for (process = 0; process < count; process++) {
@@ -75,7 +113,7 @@ stats* srtf_policy(task_t task_array[], stats stats_array[], int finish_array[],
         remainingTime[shortest]--;
         minTime = remainingTime[shortest];
         if (minTime == 0) {
-            minTime = INT_MAX;
+            minTime = MAX_TIME;
         }
 
         printf("<time %d> process %d is running\n", timeCount, task_array[shortest].pid);
