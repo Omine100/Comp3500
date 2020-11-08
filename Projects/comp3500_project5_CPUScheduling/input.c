@@ -11,22 +11,15 @@
 
 #define MAX_TASK_NUM 32
 
-typedef unsigned int u_int;
-typedef struct task {    
-    u_int pid;    
-    u_int arrival_time;   
-    u_int burst_time;
-} task_t;
-
 int main(int argc, char *argv[]) {
     char *file_name;
     char *policy_type;
     int type;
-    FILE *fp;
-    task_t task_array[MAX_TASK_NUM];
-
     u_int i;
     u_int count;
+    FILE *fp;
+    task_t task_array[MAX_TASK_NUM];
+    int finish_array[MAX_TASK_NUM];
 
     if (argc == 1 || argc > 4) {
         printf("Usage: scheduler task_list_file [FCFS|RR|SRTF] [time_quantum]\n");
@@ -45,13 +38,7 @@ int main(int argc, char *argv[]) {
     }
 
     policy_type = argv[2];
-    if (strcmp(argv[2], "FCFS") == 0) {
-        type = 1;
-    } else if (strcmp(argv[2], "RR") == 0) {
-        type = 2;
-    } else if (strcmp(argv[2], "SRTF") == 0) {
-        type = 3;
-    } else {
+    if (strcmp(argv[2], "FCFS") != 0 && strcmp(argv[2], "RR") != 0 && strcmp(argv[2], "SRTF") != 0) {
         printf("Policy type not recognized. Retry...\n");
         return EXIT_FAILURE;
     }
@@ -62,6 +49,15 @@ int main(int argc, char *argv[]) {
     getchar();
     fclose(fp);
     printf("==================================================================\n");
-    fcfs_policy();
+
+    if (strcmp(argv[2], "FCFS") == 0) { //Put this in a for-loop for count?
+        fcfs_policy(task_array[1], finish_array[1], count);
+    } else if (strcmp(argv[2], "RR") == 0) {
+        int time_quantum = atoi(argv[3]);
+        rr_policy(task_array[1], finish_array[1], count, time_quantum);
+    } else {
+        srtf_policy(task_array[1], finish_array[1], count);
+    }
+    
     return EXIT_SUCCESS;
 }
