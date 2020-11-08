@@ -46,10 +46,52 @@ stats* fcfs_policy(task_t task_array[], stats stats_array[], int count) {
 
 stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int count, int time_quantum) {
     printf("Testing RR\n");
+    return stats_array;
 }
 
 stats* srtf_policy(task_t task_array[], stats stats_array[], int finish_array[], int count) {
-    printf("Testing SRTF\n");
+    //Variables
+    int process, burstCount, timeCount = 0, complete = 0, minTime = INT_MAX, shortest = 0, check = 0;
+    int remainingTime[count];
+
+    for (process = 0; process < count; process++) {
+        remainingTime[process] = task_array[process].burst_time;
+    }
+
+    while(complete != count) {
+        for (process = 0; process < count; process++) {
+            if ((task_array[process].arrival_time <= timeCount) && (remainingTime[process] > 0) && (remainingTime[process] < minTime)) {
+                minTime = remainingTime[process];
+                shortest = process;
+                check = 1;
+            }
+        }
+
+        if (check == 0) {
+            timeCount++;
+            continue;
+        }
+
+        remainingTime[shortest]--;
+        minTime = remainingTime[shortest];
+        if (minTime == 0) {
+            minTime = INT_MAX;
+        }
+
+        printf("<time %d> process %d is running\n", timeCount, task_array[shortest].pid);
+        if (remainingTime[shortest] == 0) {
+            printf("<time %d> process %d is finished...\n", timeCount, task_array[shortest].pid);
+            complete++;
+            check = 0;
+            stats_array[shortest].waiting_time = timeCount - task_array[shortest].burst_time - task_array[shortest].arrival_time;
+            stats_array[shortest].response_time = timeCount - task_array[shortest].burst_time - task_array[shortest].arrival_time;
+            stats_array[shortest].turnaround_time = timeCount - task_array[shortest].arrival_time;
+        }
+        timeCount++;
+    }
+    printf("<time %d> All processes finish ......\n", timeCount);
+
+    return stats_array;
 }
 
 stats* averageCalculator(stats stats_array[], int count) {

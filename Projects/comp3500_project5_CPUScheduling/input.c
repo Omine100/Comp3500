@@ -25,31 +25,31 @@ int main(int argc, char *argv[]) {
     stats stats_array[MAX_TASK_NUM];
     int finish_array[MAX_TASK_NUM];
 
-    //Telling the user how to use the program by commands
+    //Input management
     if (argc == 1 || argc > 4) {
+        //Telling the user how to use the program
         printf("Usage: scheduler task_list_file [FCFS|RR|SRTF] [time_quantum]\n");
         return EXIT_FAILURE;
-    }
+    } else {
+        //Opening the file, or informing the user about an error with the file
+        file_name = argv[1];
+        if (!(fp = fopen(file_name, "r"))) {
+            printf("File can't be opened. Retry...\n");
+            return EXIT_FAILURE;
+        } else {
+            count = 0;
+            while (fscanf(fp, "%u %u %u", &task_array[count].pid, &task_array[count].arrival_time, &task_array[count].burst_time)!= EOF) {
+                count++;
+            }
 
-    //Opening the file, or informing the user about an error with the file
-    file_name = argv[1];
-    if (!(fp = fopen(file_name, "r"))) {
-        printf("File can't be opened. Retry...\n");
-        return EXIT_FAILURE;
-    }
-
-    //Reading the file
-    count = 0;
-    while (fscanf(fp, "%u %u %u", &task_array[count].pid, &task_array[count].arrival_time, &task_array[count].burst_time)!= EOF) {
-        count++;
-    }
-
-    //Reading the policy type, or informing the user about an error with the policy type
-    policy_type = argv[2];
-    if (strcmp(argv[2], "FCFS") != 0 && strcmp(argv[2], "RR") != 0 && strcmp(argv[2], "SRTF") != 0) {
-        printf("Policy type not recognized. Retry...\n");
-        return EXIT_FAILURE;
-    }
+            //Looking at policy type, or informing the user about an error with the type
+            policy_type = argv[2];
+            if (strcmp(argv[2], "FCFS") != 0 && strcmp(argv[2], "RR") != 0 && strcmp(argv[2], "SRTF") != 0) {
+                printf("Policy type not recognized. Retry...\n");
+                return EXIT_FAILURE;
+            }
+        }
+    }    
 
     //Output to the reader prior to scheduling
     printf("Scheduling Policy: %s\n", policy_type);
@@ -59,23 +59,19 @@ int main(int argc, char *argv[]) {
     fclose(fp);
     printf("==================================================================\n");
 
-    //Policy picker and scheduling execution
+    //Scheduling
     if (strcmp(argv[2], "FCFS") == 0) {
-        fcfs_policy(task_array, stats_array, finish_array, count);
+        fcfs_policy(task_array, stats_array, count);
     } else if (strcmp(argv[2], "RR") == 0) {
         int time_quantum = atoi(argv[3]);
         rr_policy(task_array, stats_array, finish_array, count, time_quantum);
     } else {
         srtf_policy(task_array, stats_array, finish_array, count);
     }
-    printf("==================================================================\n");
 
-    //Calculating averages with stat array from scheduling
+    //Output to the user
     averageCalculator(stats_array, count);
-
-    //Output to the user after calculating
     displayStat(stats_array[count + 1].waiting_time, stats_array[count + 1].turnaround_time, stats_array[count + 1].response_time);
-    printf("==================================================================\n");
     
     return EXIT_SUCCESS;
 }
