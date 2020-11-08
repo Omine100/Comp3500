@@ -50,13 +50,13 @@ int main(int argc, char *argv[]) {
     fclose(fp);
     printf("==================================================================\n");
 
-    if (strcmp(argv[2], "FCFS") == 0) { //Put this in a for-loop for count?
-        fcfs_policy(task_array[1], finish_array[1], count);
+    if (strcmp(argv[2], "FCFS") == 0) {
+        fcfs_policy(task_array, finish_array, count);
     } else if (strcmp(argv[2], "RR") == 0) {
         int time_quantum = atoi(argv[3]);
-        rr_policy(task_array[1], finish_array[1], count, time_quantum);
+        rr_policy(task_array, finish_array, count, time_quantum);
     } else {
-        srtf_policy(task_array[1], finish_array[1], count);
+        srtf_policy(task_array, finish_array, count);
     }
     
     return EXIT_SUCCESS;

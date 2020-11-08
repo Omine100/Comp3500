@@ -14,14 +14,14 @@ typedef struct task {
     u_int burst_time;
 } task_t;
 
-void fcfs_policy(task_t task_array, int finish_array, int count) {
+void fcfs_policy(task_t task_array[], int finish_array[], int count) {
     printf("\n\nTesting FCFS");
 }
 
-void rr_policy(task_t task_array, int finish_array, int count, int time_quantum) {
+void rr_policy(task_t task_array[], int finish_array[], int count, int time_quantum) {
     printf("\n\nTesting RR");
 }
 
-void srtf_policy(task_t task_array, int finish_array, int count) {
+void srtf_policy(task_t task_array[], int finish_array[], int count) {
     printf("\n\nTesting SRTF");
 }
