@@ -19,6 +19,7 @@ typedef struct task {
 int main(int argc, char *argv[]) {
     char *file_name;
     char *policy_type;
+    int type;
     FILE *fp;
     task_t task_array[MAX_TASK_NUM];
 
@@ -42,9 +43,12 @@ int main(int argc, char *argv[]) {
     }
 
     policy_type = argv[2];
-
     if (strcmp(argv[2], "FCFS") == 0) {
-        printf("Testintestintesting");
+        type = 1;
+    } else if (strcmp(argv[2], "RR") == 0) {
+        type = 2;
+    } else {
+        type = 3;
     }
 
     printf("Scheduling Policy: %s\n", policy_type);
