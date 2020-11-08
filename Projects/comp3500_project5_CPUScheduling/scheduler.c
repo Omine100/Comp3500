@@ -21,7 +21,7 @@ typedef struct stat {
     int response_time;
 } stats;
 
-stats* fcfs_policy(task_t task_array[], stats stats_array[], int finish_array[], int count) {
+stats* fcfs_policy(task_t task_array[], stats stats_array[], int count) {
     //Variables
     int process, burstCount, timeCount = 0;
 
@@ -44,11 +44,11 @@ stats* fcfs_policy(task_t task_array[], stats stats_array[], int finish_array[],
     return stats_array;
 }
 
-void rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int count, int time_quantum) {
+stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int count, int time_quantum) {
     printf("Testing RR\n");
 }
 
-void srtf_policy(task_t task_array[], stats stats_array[], int finish_array[], int count) {
+stats* srtf_policy(task_t task_array[], stats stats_array[], int finish_array[], int count) {
     printf("Testing SRTF\n");
 }
 
