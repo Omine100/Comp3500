@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
     printf("==================================================================\n");
 
     //Output to the user after scheduling
-    displayStat();
+    displayStat(stats_array[count + 1].waiting_time, stats_array[count + 1].turnaround_time, stats_array[count + 1].response_time);
     printf("==================================================================\n");
     
     return EXIT_SUCCESS;
