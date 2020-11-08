@@ -59,7 +59,10 @@ stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], i
             if (remainingBurst[process] > 0) {
                 done = 0;
                 if (remainingBurst[process] > time_quantum) {
-                    printf("<time %d> process %d is running\n", timeCount, task_array[process].pid);
+                    printf("<time %d> process %d is running\n", (timeCount), task_array[process].pid);
+                    for (int i = 1; i < time_quantum; i++) {
+                        printf("<time %d> process %d is running\n", (timeCount + i), task_array[process].pid);
+                    }
                     timeCount = timeCount + time_quantum;
                     remainingBurst[process] = remainingBurst[process] - time_quantum;
                 } else {
