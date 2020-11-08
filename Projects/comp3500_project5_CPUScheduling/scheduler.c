@@ -15,13 +15,13 @@ typedef struct task {
 } task_t;
 
 void fcfs_policy(task_t task_array[], int finish_array[], int count) {
-    printf("\n\nTesting FCFS");
+    printf("Testing FCFS\n");
 }
 
 void rr_policy(task_t task_array[], int finish_array[], int count, int time_quantum) {
-    printf("\n\nTesting RR");
+    printf("Testing RR\n");
 }
 
 void srtf_policy(task_t task_array[], int finish_array[], int count) {
-    printf("\n\nTesting SRTF");
+    printf("Testing SRTF\n");
 }

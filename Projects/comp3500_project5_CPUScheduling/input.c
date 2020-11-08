@@ -8,6 +8,7 @@
 #include <string.h>
 
 #include "scheduler.h"
+#include "displayStat.h"
 
 #define MAX_TASK_NUM 32
 
@@ -58,6 +59,10 @@ int main(int argc, char *argv[]) {
     } else {
         srtf_policy(task_array, finish_array, count);
     }
+    printf("==================================================================\n");
+
+    displayStat();
+    printf("==================================================================\n");
     
     return EXIT_SUCCESS;
 }
