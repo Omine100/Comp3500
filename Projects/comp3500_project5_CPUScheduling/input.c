@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
     u_int count;
     FILE *fp;
     task_t task_array[MAX_TASK_NUM];
+    stats stats_array[MAX_TASK_NUM];
     int finish_array[MAX_TASK_NUM];
 
     //Telling the user how to use the program by commands
@@ -60,12 +61,12 @@ int main(int argc, char *argv[]) {
 
     //Policy picker leading into scheduling
     if (strcmp(argv[2], "FCFS") == 0) {
-        fcfs_policy(task_array, finish_array, count);
+        fcfs_policy(task_array, stats_array, finish_array, count);
     } else if (strcmp(argv[2], "RR") == 0) {
         int time_quantum = atoi(argv[3]);
-        rr_policy(task_array, finish_array, count, time_quantum);
+        rr_policy(task_array, stats_array, finish_array, count, time_quantum);
     } else {
-        srtf_policy(task_array, finish_array, count);
+        srtf_policy(task_array, stats_array, finish_array, count);
     }
     printf("==================================================================\n");
 
