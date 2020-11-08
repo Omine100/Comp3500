@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "scheduler.h"
+
 #define MAX_TASK_NUM 32
 
 typedef unsigned int u_int;
@@ -47,8 +49,11 @@ int main(int argc, char *argv[]) {
         type = 1;
     } else if (strcmp(argv[2], "RR") == 0) {
         type = 2;
-    } else {
+    } else if (strcmp(argv[2], "SRTF") == 0) {
         type = 3;
+    } else {
+        printf("Policy type not recognized. Retry...\n");
+        return EXIT_FAILURE;
     }
 
     printf("Scheduling Policy: %s\n", policy_type);
@@ -57,5 +62,6 @@ int main(int argc, char *argv[]) {
     getchar();
     fclose(fp);
     printf("==================================================================\n");
+    policyPicker(type);
     return EXIT_SUCCESS;
 }
