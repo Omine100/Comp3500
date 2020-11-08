@@ -62,6 +62,6 @@ int main(int argc, char *argv[]) {
     getchar();
     fclose(fp);
     printf("==================================================================\n");
-    policyPicker(type);
+    fcfs_policy();
     return EXIT_SUCCESS;
 }
