@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     fclose(fp);
     printf("==================================================================\n");
 
-    //Policy picker leading into scheduling
+    //Policy picker and scheduling execution
     if (strcmp(argv[2], "FCFS") == 0) {
         fcfs_policy(task_array, stats_array, finish_array, count);
     } else if (strcmp(argv[2], "RR") == 0) {
@@ -70,7 +70,10 @@ int main(int argc, char *argv[]) {
     }
     printf("==================================================================\n");
 
-    //Output to the user after scheduling
+    //Calculating averages with stat array from scheduling
+    averageCalculator(stats_array, count);
+
+    //Output to the user after calculating
     displayStat(stats_array[count + 1].waiting_time, stats_array[count + 1].turnaround_time, stats_array[count + 1].response_time);
     printf("==================================================================\n");
     

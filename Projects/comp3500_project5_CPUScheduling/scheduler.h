@@ -9,4 +9,6 @@ void rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int
 
 void srtf_policy(task_t task_array[], stats stats_array[], int finish_array[], int count);
 
+stats* averageCalculator(stats stats_array[], int count);
+
 #endif
