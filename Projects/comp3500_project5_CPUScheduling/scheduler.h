@@ -1,7 +1,5 @@
 //This is a handler file for scheduler.c, very important.
 
-#include "scheduler.c"
-
 #ifndef _SCHEDULER_H_
 #define _SCHEDULER_H_
 

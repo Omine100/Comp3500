@@ -1,0 +1,34 @@
+Matthew Browning
+904021061
+mrb0094
+
+7.1 (Project description)
+	1. How did you separate scheduling mechanism from scheduling policies?
+		- I had my scheduling policy picker in the input.c file, while all of my mechanisms were in the scheduler.c file.
+	2. How did you implement the three scheduling algorithms?
+		- I implemented the three scheduling algorithms in scheduler.c. Each policy has their own method and then sends the data into a general method for calculating averages and displaying to the user.
+	3. How did you calculate waiting times?
+		- The waiting times were calculated as the time for starting the execution minus the arrival time.
+	4. How did you calculate response times?
+		- I am under the impression that waiting times and response times are rather similar, so they were calculated in the same way.
+	5. How did you calculate turnaround times?
+		- Turnaround time was calculated as final execution time minus arrival time.
+	6. How did you implement the command-line parser?
+		- The command-line parser was implemented in the input.c file. It takes the input from the user and then sends it through a few "if" statements to decide what needs to be done.
+
+
+7.2 (Generality and error checking)
+	1. How general is your solution?
+		- My solution is very general. You can throw any file into the program, as long as it is in the same format, and it will pump out a solution.
+	2. How easy would it be to add a new scheduling policy into your schedule?
+		- Adding a new scheduling policy would be very easy to do in this program. I initially had an average calculator and display mechanism for each policy, but then I put them into a more general format. By doing this, you could add any policy and then just throw in a new "if" statement in the policy picker in input.c for it to be completed.
+	3. Does your program offer input error checking?
+		- This program offers a lot of input error checking. It does not allow the user to put in a policy that does not exist, a file that can not be read, or an input that just does not make sense.
+
+7.3 (Miscellaneous factors)
+	1. Is your code elegant?
+		- The code used to be very messy, but then I tried to consolidate a lot of it. Most of the segments are labeled with comments and it is easy to understand.
+	2. How innovative is your solution? Did you try any ideas not suggested here?
+		- I think that the most innovative thing that is in my program is just the tightness of it all. The code is quick and it is easy to read/understand.
+	3. Did you document all outside sources?
+		- I used the powerpoints from class, but I did not know if those needed to be cited in the program.	

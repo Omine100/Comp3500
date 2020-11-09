@@ -8,6 +8,7 @@
 #include <string.h>
 #include<time.h>
 
+#include "input.h"
 #include "scheduler.h"
 #include "displayStat.h"
 

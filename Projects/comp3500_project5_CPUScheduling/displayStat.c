@@ -2,6 +2,8 @@
 * Just a simple display method.
 */
 
+#include "input.h"
+
 void displayStat(float averageWaitingTime, float averageTurnaroundTime, float averageResponseTime) {
     printf("==================================================================\n");    
     printf("Average waiting time:\t\t%f\n", averageWaitingTime);

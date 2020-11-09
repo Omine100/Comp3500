@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -g
 OBJ = displayStat.o scheduler.o
 
-scheduler: $(OBJ) scheduler.c
+scheduler: $(OBJ) input.c
 	@echo "Creating the scheduler ..."
 	$(CC) -o $@ $^ $(CFLAGS)
 
