@@ -1,3 +1,5 @@
+//This is a handler file for displayStat.c, very important.
+
 #include "displayStat.c"
 
 #ifndef _DISPLAYSTAT_H_

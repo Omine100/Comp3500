@@ -46,7 +46,7 @@ stats* fcfs_policy(task_t task_array[], stats stats_array[], int count) {
 
 stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], int count, int time_quantum) {
     //Variables
-    int process, timeCount = 0, cont = 1;
+    int process, timeCount = 0, cont = 1, i;
     int remainingBurst[count];
     
     for (process = 0; process < count; process++) {
@@ -60,7 +60,7 @@ stats* rr_policy(task_t task_array[], stats stats_array[], int finish_array[], i
                 done = 0;
                 if (remainingBurst[process] > time_quantum) {
                     printf("<time %d> process %d is running\n", (timeCount), task_array[process].pid);
-                    for (int i = 1; i < time_quantum; i++) {
+                    for (i = 1; i < time_quantum; i++) {
                         printf("<time %d> process %d is running\n", (timeCount + i), task_array[process].pid);
                     }
                     timeCount = timeCount + time_quantum;
@@ -136,9 +136,12 @@ stats* srtf_policy(task_t task_array[], stats stats_array[], int finish_array[],
 }
 
 stats* averageCalculator(stats stats_array[], int count) {
+    //Variables
+    int i;
+    
     //Calculating and preparing average data
     int totalWaitingTime = 0, totalTurnaroundTime = 0, totalResponseTime = 0;
-    for (int i = 0; i < (count); i++) {
+    for (i = 0; i < (count); i++) {
         totalWaitingTime = totalWaitingTime + stats_array[i].waiting_time;
         totalTurnaroundTime = totalTurnaroundTime + stats_array[i].turnaround_time;
         totalResponseTime = totalResponseTime + stats_array[i].response_time;
